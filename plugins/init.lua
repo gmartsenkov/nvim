@@ -6,6 +6,9 @@ return {
    },
     ["neovim/nvim-lspconfig"] = {
       config = function()
+        require'lspconfig'.gopls.setup{}
+        require'lspconfig'.solargraph.setup{}
+
         on_attach = function(client, _)
           client.server_capabilities.document_formatting = false
           client.server_capabilities.document_range_formatting = false
