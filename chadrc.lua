@@ -26,6 +26,16 @@ M.plugins = {
         { name = "nvim_lsp" },
         { name = "path" },
       }
+    },
+    ["nvim-treesitter/nvim-treesitter"] = {
+      ensure_installed = {
+        "lua",
+        "vim",
+        "ruby"
+      },
+      endwise = {
+        enable = true,
+      },
     }
   }
 }
