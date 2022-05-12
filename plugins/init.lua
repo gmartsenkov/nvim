@@ -23,6 +23,24 @@ return {
        require('telescope').load_extension('projects')
      end
    },
+   ["nvim-telescope/telescope-fzy-native.nvim"] = {
+     run = 'make'
+   },
+   ["nvim-telescope/telescope.nvim"] = {
+     config = function()
+       require "plugins.configs.telescope"
+       require('telescope').load_extension('fzy_native')
+       require('telescope').load_extension('projects')
+     end,
+     setup = function()
+       -- load default mappings first
+       require("core.mappings").telescope()
+
+       -- then load your mappings
+       local map = nvchad.map
+       map("n", "<leader>ts", "<cmd> :Telescope themes <CR>")
+     end,
+   },
    ["vinibispo/ruby.nvim"] = {
      config = function()
        require("ruby_nvim").setup({
