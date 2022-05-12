@@ -17,6 +17,19 @@ return {
         end
       end,
    },
+   ["ahmedkhalf/project.nvim"] = {
+     config = function()
+       require("project_nvim").setup {}
+       require('telescope').load_extension('projects')
+     end
+   },
+   ["vinibispo/ruby.nvim"] = {
+     config = function()
+       require("ruby_nvim").setup({
+         test_cmd = "bundle exec rspec"
+       })
+     end
+   },
    ["ray-x/go.nvim"] = {
      config = function()
        require('go').setup()
