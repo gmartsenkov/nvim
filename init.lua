@@ -11,4 +11,7 @@ map("n", "<leader>x", ":Telescope commands <CR>")
 map("n", "<leader>pp", ":Telescope projects <CR>")
 map("n", "<leader><leader>", ":Telescope find_files <CR>")
 
+map("n", "<leader>tv", ":TestFile <CR>")
+map("n", "<leader>ta", ":TestSuite <CR>")
+map("n", "<leader>ts", ":TestNearest <CR>")
 -- require("my autocmds file") or just declare them here
