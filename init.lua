@@ -3,6 +3,7 @@
 -- MAPPINGS
 local map = nvchad.map
 
+map("n", "<leader>gg", ":Neogit <CR>")
 map("n", "<leader>cc", ":Telescope <CR>")
 map("n", "<leader>q", ":q <CR>")
 map("n", "<leader>bb", ":Telescope buffers <CR>")

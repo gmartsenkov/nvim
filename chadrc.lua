@@ -20,6 +20,12 @@ M.plugins = {
           -- the default case_mode is "smart_case"
         }
       }
+    },
+    ["hrsh7th/nvim-cmp"] = {
+      sources = {
+        { name = "nvim_lsp" },
+        { name = "path" },
+      }
     }
   }
 }
