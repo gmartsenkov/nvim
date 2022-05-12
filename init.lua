@@ -15,3 +15,5 @@ map("n", "<leader>tv", ":TestFile <CR>")
 map("n", "<leader>ta", ":TestSuite <CR>")
 map("n", "<leader>ts", ":TestNearest <CR>")
 -- require("my autocmds file") or just declare them here
+
+vim.api.nvim_exec([[ autocmd FileType go setlocal shiftwidth=8 softtabstop=8 expandtab ]], false)
