@@ -39,7 +39,6 @@ M.plugins = {
     }
   },
   remove = {
-      "hrsh7th/cmp-buffer",
       "goolord/alpha-nvim",
       "akinsho/bufferline.nvim"
    },
