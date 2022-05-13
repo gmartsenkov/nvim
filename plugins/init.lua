@@ -7,19 +7,6 @@ return {
          require("neogit").setup {}
       end,
    },
-    ["neovim/nvim-lspconfig"] = {
-      config = function()
-        require'lspconfig'.gopls.setup{}
-        require'lspconfig'.solargraph.setup{}
-
-        on_attach = function(client, _)
-          client.server_capabilities.document_formatting = false
-          client.server_capabilities.document_range_formatting = false
-
-          require("core.mappings").lspconfig()
-        end
-      end,
-   },
    ["ahmedkhalf/project.nvim"] = {
      config = function()
        require("project_nvim").setup {}
@@ -71,18 +58,7 @@ return {
    ["jose-elias-alvarez/null-ls.nvim"] = {
      after = "nvim-lspconfig",
      config = function()
-       require("null-ls").setup({
-         sources = {
-           require("null-ls").builtins.formatting.stylua,
-           require("null-ls").builtins.diagnostics.eslint,
-           require("null-ls").builtins.completion.spell,
-         },
-         on_attach = function(client)
-           if client.server_capabilities.document_formatting then
-             vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
-           end
-         end,
-       })
+       require("custom.plugins.null-ls").setup()
      end,
-   },
- }
+   }
+}

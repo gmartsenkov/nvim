@@ -42,6 +42,11 @@ M.plugins = {
       "goolord/alpha-nvim",
       "akinsho/bufferline.nvim"
    },
+  options = {
+    lspconfig = {
+      setup_lspconf = "custom.plugins.lspconfig",
+    },
+  },
 }
 
 M.ui = {
