@@ -27,7 +27,12 @@ M.plugins = {
         { name = "path" },
       }
     }
-  }
+  },
+  remove = {
+      "hrsh7th/cmp-buffer",
+      "goolord/alpha-nvim",
+      "akinsho/bufferline.nvim"
+   },
 }
 
 M.ui = {
