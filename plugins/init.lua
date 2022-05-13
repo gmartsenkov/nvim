@@ -1,4 +1,7 @@
 return {
+    ["RRethy/nvim-treesitter-endwise"] = {
+      before = 'nvim-treesitter'
+    },
     ["TimUntersberger/neogit"] = {
       config = function()
          require("neogit").setup {}
