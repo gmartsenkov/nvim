@@ -25,7 +25,7 @@ M.setup = function()
       -- format on save
       on_attach = function(client)
          if client.resolved_capabilities.document_formatting then
-            vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.format()"
+            vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]], false)
          end
       end,
    }
