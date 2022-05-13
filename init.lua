@@ -10,6 +10,7 @@ map("n", "<leader>bb", ":Telescope buffers <CR>")
 map("n", "<leader>x", ":Telescope commands <CR>")
 map("n", "<leader>pp", ":Telescope projects <CR>")
 map("n", "<leader><leader>", ":Telescope find_files <CR>")
+map("n", "<leader>/", ":Telescope live_grep <CR>")
 
 map("n", "<leader>tv", ":TestFile <CR>")
 map("n", "<leader>ta", ":TestSuite <CR>")
