@@ -29,9 +29,6 @@ return {
        require('telescope').load_extension('projects')
      end,
      setup = function()
-       -- load default mappings first
-       require("core.mappings").telescope()
-
        -- then load your mappings
        local map = nvchad.map
        map("n", "<leader>ts", "<cmd> :Telescope themes <CR>")
