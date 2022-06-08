@@ -28,14 +28,6 @@ return {
        require('telescope').load_extension('fzy_native')
        require('telescope').load_extension('projects')
      end,
-     setup = function()
-       -- load default mappings first
-       require("core.mappings").telescope()
-
-       -- then load your mappings
-       local map = nvchad.map
-       map("n", "<leader>ts", "<cmd> :Telescope themes <CR>")
-     end,
    },
    ["vinibispo/ruby.nvim"] = {
      config = function()
@@ -60,5 +52,12 @@ return {
      config = function()
        require("custom.plugins.null-ls").setup()
      end,
-   }
+   },
+   ["elixir-editors/vim-elixir"] = {},
+   ["mhanberg/elixir.nvim"] = {
+     config = function()
+        require("elixir").setup()
+     end,
+   },
+   ["jghauser/mkdir.nvim"] = {}
 }
