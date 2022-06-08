@@ -23,7 +23,7 @@ M.plugins = {
     },
     ["hrsh7th/nvim-cmp"] = {
       sources = {
-        { name = "nvim_lsp" },
+        { name = "nvim_lsp", max_item_count = 8 },
         { name = "path" },
       }
     },
@@ -50,7 +50,7 @@ M.plugins = {
 }
 
 M.ui = {
-   theme = "gruvchad",
+   theme = "everforest",
 }
 
 return M
