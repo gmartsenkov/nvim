@@ -51,6 +51,22 @@ M.nav = {
   n = {
     ["<C-[>"] = {"<cmd> bprevious <CR>", "previous buffer"},
     ["<C-]>"] = {"<cmd> bnext <CR>", "next buffer"},
+    ["<leader>wv"] = {"<cmd> vsplit <CR>", "split vertical"},
+    ["<leader>wh"] = {"<cmd> split <CR>", "split horizontal"},
+    ["<C-t>"] = {
+      function()
+        require("nvterm.terminal").toggle "float"
+      end,
+      "   toggle floating term",
+    },
+  },
+  t = {
+    ["<C-t>"] = {
+      function()
+        require("nvterm.terminal").toggle "float"
+      end,
+      "   toggle floating term",
+    },
   }
 }
 
