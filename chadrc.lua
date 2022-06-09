@@ -11,6 +11,13 @@ M.plugins = {
   user = userPlugins,
   override = {
     ["nvim-telescope/telescope.nvim"] = {
+      defaults = {
+        mappings = {
+          i = {
+            ["<esc>"] = require("telescope.actions").close,
+          },
+        },
+      },
       extensions = {
         fzf = {
           fuzzy = false,                    -- false will only do exact matching
