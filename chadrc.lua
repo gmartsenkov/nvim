@@ -53,4 +53,6 @@ M.ui = {
    theme = "everforest",
 }
 
+M.mappings = require "custom.mappings"
+
 return M
