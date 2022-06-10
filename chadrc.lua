@@ -51,10 +51,7 @@ M.plugins = {
       },
     }
   },
-  remove = {
-      "goolord/alpha-nvim",
-      "akinsho/bufferline.nvim"
-   },
+  remove = {},
   options = {
     lspconfig = {
       setup_lspconf = "custom.plugins.lspconfig",

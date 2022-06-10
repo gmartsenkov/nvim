@@ -44,14 +44,16 @@ return {
    ["goolord/alpha-nvim"] = {
       disable = false,
    },
-   ["akinsho/bufferline.nvim"] = {
-     disable = true,
-   },
    ["jose-elias-alvarez/null-ls.nvim"] = {
      after = "nvim-lspconfig",
      config = function()
        require("custom.plugins.null-ls").setup()
      end,
+   },
+   ["mhanberg/elixir.nvim"] = {
+     config = function()
+       require("elixir").setup()
+     end
    },
    ["elixir-editors/vim-elixir"] = {},
    ["jghauser/mkdir.nvim"] = {}
