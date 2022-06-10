@@ -15,6 +15,8 @@ M.plugins = {
         mappings = {
           i = {
             ["<esc>"] = require("telescope.actions").close,
+            ["<C-j>"] = require("telescope.actions").move_selection_next,
+            ["<C-k>"] = require("telescope.actions").move_selection_previous
           },
         },
       },
@@ -32,6 +34,10 @@ M.plugins = {
       sources = {
         { name = "nvim_lsp", max_item_count = 8 },
         { name = "path" },
+      },
+      mapping = {
+        ["<C-j>"] = require("cmp").mapping.select_next_item(),
+        ["<C-k>"] = require("cmp").mapping.select_prev_item()
       }
     },
     ["nvim-treesitter/nvim-treesitter"] = {
