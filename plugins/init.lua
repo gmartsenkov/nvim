@@ -54,5 +54,20 @@ return {
      end
    },
    ["elixir-editors/vim-elixir"] = {},
-   ["jghauser/mkdir.nvim"] = {}
+   ["jghauser/mkdir.nvim"] = {},
+   ["rgroli/other.nvim"] = {
+     config = function()
+       require("other-nvim").setup({
+           mappings = {
+             {
+               pattern = "/lib/(.*)/(.*).ex",
+               target = "/test/%1/%2_test.exs",
+             },
+             {
+               pattern = "/test/(.*)/(.*)_test.exs",
+               target = "/lib/%1/%2.ex",
+             }
+           }})
+     end
+   }
 }
