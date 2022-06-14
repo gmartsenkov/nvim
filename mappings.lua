@@ -18,6 +18,7 @@ M.telescope = {
 
 M.tests = {
   n = {
+    ["<leader>tt"] = {"<cmd> Other <CR>", "test file"},
     ["<leader>tv"] = {"<cmd> TestFile <CR>", "test file"},
     ["<leader>ta"] = {"<cmd> TestSuite <CR>", "test project"},
     ["<leader>ts"] = {"<cmd> TestNearest <CR>", "test nearest"},
