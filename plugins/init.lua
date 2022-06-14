@@ -78,7 +78,15 @@ return {
              {
                pattern = "/test/(.*)/(.*)_test.exs",
                target = "/lib/%1/%2.ex",
-             }
+             },
+             {
+               pattern = "/lib/(.*)/(.*).rb",
+               target = "/spec/%1/%2_spec.rb",
+             },
+             {
+               pattern = "/spec/(.*)/(.*)_spec.rb",
+               target = "/lib/%1/%2.rb",
+             },
            }})
      end
    }
