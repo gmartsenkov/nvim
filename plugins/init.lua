@@ -8,6 +8,7 @@ return {
       end,
    },
    ["ahmedkhalf/project.nvim"] = {
+     after = 'telescope.nvim',
      config = function()
        require("project_nvim").setup {}
        require('telescope').load_extension('projects')
@@ -20,14 +21,11 @@ return {
      end
    },
    ["nvim-telescope/telescope-fzy-native.nvim"] = {
-     run = 'make'
-   },
-   ["nvim-telescope/telescope.nvim"] = {
+     after = 'telescope.nvim',
+     run = 'make',
      config = function()
-       require "plugins.configs.telescope"
        require('telescope').load_extension('fzy_native')
-       require('telescope').load_extension('projects')
-     end,
+     end
    },
    ["vinibispo/ruby.nvim"] = {
      config = function()
