@@ -55,6 +55,16 @@ return {
        require("custom.plugins.null-ls").setup()
      end,
    },
+   ["nvim-telescope/telescope.nvim"] = {
+     config = function()
+       require("custom.plugins.telescope").setup()
+     end,
+   },
+   ["hrsh7th/nvim-cmp"] = {
+     config = function()
+       require("custom.plugins.cmp").setup()
+     end,
+   },
    ["elixir-editors/vim-elixir"] = {},
    ["jghauser/mkdir.nvim"] = {},
    ["rgroli/other.nvim"] = {

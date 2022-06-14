@@ -50,8 +50,8 @@ M.lsp = {
 
 M.nav = {
   n = {
-    ["<C-[>"] = {"<cmd> bprevious <CR>", "previous buffer"},
-    ["<C-]>"] = {"<cmd> bnext <CR>", "next buffer"},
+    ["<C-a>"] = {"<cmd> bprevious <CR>", "previous buffer"},
+    ["<C-d>"] = {"<cmd> bnext <CR>", "next buffer"},
     ["<leader>wv"] = {"<cmd> vsplit <CR>", "split vertical"},
     ["<leader>wh"] = {"<cmd> split <CR>", "split horizontal"},
     ["<C-t>"] = {
