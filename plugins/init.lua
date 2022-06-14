@@ -35,8 +35,15 @@ return {
      end
    },
    ["ray-x/go.nvim"] = {
+     after = "nvim-lspconfig",
      config = function()
        require('go').setup()
+     end
+   },
+   ["mhanberg/elixir.nvim"] = {
+     after = "nvim-lspconfig",
+     config = function()
+       require("elixir").setup()
      end
    },
    ["goolord/alpha-nvim"] = {
@@ -47,11 +54,6 @@ return {
      config = function()
        require("custom.plugins.null-ls").setup()
      end,
-   },
-   ["mhanberg/elixir.nvim"] = {
-     config = function()
-       require("elixir").setup()
-     end
    },
    ["elixir-editors/vim-elixir"] = {},
    ["jghauser/mkdir.nvim"] = {},
