@@ -13,6 +13,11 @@ local sources = {
    -- Shell
    b.formatting.shfmt,
    b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
+
+   -- credo
+   b.diagnostics.credo,
+   -- rubocop
+   b.diagnostics.rubocop
 }
 
 local M = {}
