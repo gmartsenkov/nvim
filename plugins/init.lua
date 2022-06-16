@@ -67,6 +67,7 @@ return {
    },
    ["elixir-editors/vim-elixir"] = {},
    ["jghauser/mkdir.nvim"] = {},
+   ["yalesov/vim-emblem"] = {},
    ["rgroli/other.nvim"] = {
      config = function()
        require("other-nvim").setup({

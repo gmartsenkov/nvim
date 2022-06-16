@@ -10,6 +10,9 @@ local userPlugins = require "custom.plugins"
 M.plugins = {
   user = userPlugins,
   override = {
+    ["williamboman/nvim-lsp-installer"] = {
+      automatic_installation = false
+    },
     ["nvim-treesitter/nvim-treesitter"] = {
       ensure_installed = {
         "lua",
