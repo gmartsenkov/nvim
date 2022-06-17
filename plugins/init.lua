@@ -20,12 +20,8 @@ return {
        vim.g['test#neovim#start_normal'] = 1
      end
    },
-   ["nvim-telescope/telescope-fzy-native.nvim"] = {
-     after = 'telescope.nvim',
-     run = 'make',
-     config = function()
-       require('telescope').load_extension('fzy_native')
-     end
+   ["nvim-telescope/telescope-fzf-native.nvim"] = {
+     run = 'make'
    },
    ["vinibispo/ruby.nvim"] = {
      config = function()
