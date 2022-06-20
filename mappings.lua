@@ -8,7 +8,7 @@ M.neogit = {
 
 M.telescope = {
   n = {
-    ["<leader><leader>"] = {"<cmd> Telescope find_files <CR>", "find files"},
+    ["<leader><leader>"] = {"<cmd> Files <CR>", "find files"},
     ["<leader>x"] = {"<cmd> Telescope commands <CR>", "commands"},
     ["<leader>bb"] = {"<cmd> Telescope buffers <CR>", "find buffers"},
     ["<leader>bd"] = {"<cmd> bdelete <CR>", "delete buffer"},

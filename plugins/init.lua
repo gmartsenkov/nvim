@@ -20,6 +20,8 @@ return {
        vim.g['test#neovim#start_normal'] = 1
      end
    },
+   ["junegunn/fzf"] = {},
+   ["junegunn/fzf.vim"] = {},
    ["nvim-telescope/telescope-fzf-native.nvim"] = {
      run = 'make'
    },
