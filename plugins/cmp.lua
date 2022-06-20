@@ -74,6 +74,7 @@ local options = {
    },
    sources = {
       { name = "nvim_lsp", max_item_count = 8 },
+      { name = "luasnip" },
       { name = "path" },
    },
 }

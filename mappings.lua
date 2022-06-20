@@ -28,18 +28,8 @@ M.tests = {
 
 M.lsp = {
   n = {
-    ["<leader>cd"] = {
-      function()
-        vim.lsp.buf.definition()
-      end,
-      "lsp definition",
-    },
-    ["<leader>cr"] = {
-      function()
-        vim.lsp.buf.references()
-      end,
-      "lsp references",
-    },
+    ["<leader>cd"] = {"<cmd> Telescope lsp_definitions <CR>", "lsp definition"},
+    ["<leader>cr"] = {"<cmd> Telescope lsp_references <CR>", "lsp references"},
     ["<leader>ca"] = {
       function()
         vim.lsp.buf.code_action()
