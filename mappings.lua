@@ -9,6 +9,7 @@ M.neogit = {
 M.telescope = {
   n = {
     ["<leader><leader>"] = {"<cmd> Telescope find_files <CR>", "find files"},
+    ["<leader>x"] = {"<cmd> Telescope commands <CR>", "commands"},
     ["<leader>bb"] = {"<cmd> Telescope buffers <CR>", "find buffers"},
     ["<leader>bd"] = {"<cmd> bdelete <CR>", "delete buffer"},
     ["<leader>pp"] = {"<cmd> Telescope projects <CR>", "switch project"},
@@ -54,6 +55,7 @@ M.nav = {
     ["<C-d>"] = {"<cmd> bnext <CR>", "next buffer"},
     ["<leader>wv"] = {"<cmd> vsplit <CR>", "split vertical"},
     ["<leader>wh"] = {"<cmd> split <CR>", "split horizontal"},
+    ["<leader>wd"] = {"<cmd> close <CR>", "close window"},
     ["<C-t>"] = {
       function()
         require("nvterm.terminal").toggle "float"

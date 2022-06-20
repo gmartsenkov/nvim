@@ -33,7 +33,7 @@ M.plugins = {
 }
 
 M.ui = {
-   theme = "everforest",
+   theme = "gruvchad",
 }
 
 M.mappings = require "custom.mappings"
