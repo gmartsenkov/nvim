@@ -33,7 +33,7 @@ M.plugins = {
 }
 
 M.ui = {
-   theme = "gruvchad",
+   theme = "tomorrow_night",
 }
 
 M.mappings = require "custom.mappings"
