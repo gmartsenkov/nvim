@@ -72,7 +72,7 @@ local options = {
       }
    },
 
-   extensions_list = { "themes", "terms", "fzf" },
+   extensions_list = { "themes", "terms" },
 }
 
 local M = {}
