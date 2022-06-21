@@ -24,7 +24,9 @@ M.plugins = {
       },
     }
   },
-  remove = {},
+  remove = {
+    "rafamadriz/friendly-snippets"
+  },
   options = {
     lspconfig = {
       setup_lspconf = "custom.plugins.lspconfig",

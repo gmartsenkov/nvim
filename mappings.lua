@@ -31,6 +31,7 @@ M.lsp = {
   n = {
     ["<leader>cd"] = {"<cmd> Telescope lsp_definitions <CR>", "lsp definition"},
     ["<leader>cr"] = {"<cmd> Telescope lsp_references <CR>", "lsp references"},
+    ["<leader>cs"] = {"<cmd> Telescope document_symbols <CR>", "lsp document symbols"},
     ["<leader>ca"] = {
       function()
         vim.lsp.buf.code_action()
@@ -47,6 +48,7 @@ M.nav = {
     ["<leader>wv"] = {"<cmd> vsplit <CR>", "split vertical"},
     ["<leader>wh"] = {"<cmd> split <CR>", "split horizontal"},
     ["<leader>wd"] = {"<cmd> close <CR>", "close window"},
+    ["<leader>gb"] = {"<cmd> Telescope git_branches <CR>", "git branches"},
     ["<C-t>"] = {
       function()
         require("nvterm.terminal").toggle "float"

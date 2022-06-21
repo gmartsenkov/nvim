@@ -29,6 +29,10 @@ return {
        require('telescope').load_extension('fzf')
      end
    },
+   ["gmartsenkov/friendly-snippets"] = {
+      module = "cmp_nvim_lsp",
+      event = "InsertEnter",
+   },
    ["vinibispo/ruby.nvim"] = {
      config = function()
        require("ruby_nvim").setup({
