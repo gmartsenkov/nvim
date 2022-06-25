@@ -24,7 +24,9 @@ M.plugins = {
       },
     }
   },
-  remove = {},
+  remove = {
+    "rafamadriz/friendly-snippets"
+  },
   options = {
     lspconfig = {
       setup_lspconf = "custom.plugins.lspconfig",
@@ -33,7 +35,7 @@ M.plugins = {
 }
 
 M.ui = {
-   theme = "everforest",
+   theme = "tomorrow_night",
 }
 
 M.mappings = require "custom.mappings"

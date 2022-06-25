@@ -9,8 +9,10 @@ M.neogit = {
 M.telescope = {
   n = {
     ["<leader><leader>"] = {"<cmd> Telescope find_files <CR>", "find files"},
+    ["<leader>x"] = {"<cmd> Telescope commands <CR>", "commands"},
     ["<leader>bb"] = {"<cmd> Telescope buffers <CR>", "find buffers"},
     ["<leader>bd"] = {"<cmd> bdelete <CR>", "delete buffer"},
+    ["<leader>bn"] = {"<cmd> enew <CR>", "new buffer"},
     ["<leader>pp"] = {"<cmd> Telescope projects <CR>", "switch project"},
     ["<leader>/"] = {"<cmd> Telescope live_grep <CR>", "grep project"}
   }
@@ -27,18 +29,9 @@ M.tests = {
 
 M.lsp = {
   n = {
-    ["<leader>cd"] = {
-      function()
-        vim.lsp.buf.definition()
-      end,
-      "lsp definition",
-    },
-    ["<leader>cr"] = {
-      function()
-        vim.lsp.buf.references()
-      end,
-      "lsp references",
-    },
+    ["<leader>cd"] = {"<cmd> Telescope lsp_definitions <CR>", "lsp definition"},
+    ["<leader>cr"] = {"<cmd> Telescope lsp_references <CR>", "lsp references"},
+    ["<leader>cs"] = {"<cmd> Telescope document_symbols <CR>", "lsp document symbols"},
     ["<leader>ca"] = {
       function()
         vim.lsp.buf.code_action()
@@ -54,6 +47,8 @@ M.nav = {
     ["<C-d>"] = {"<cmd> bnext <CR>", "next buffer"},
     ["<leader>wv"] = {"<cmd> vsplit <CR>", "split vertical"},
     ["<leader>wh"] = {"<cmd> split <CR>", "split horizontal"},
+    ["<leader>wd"] = {"<cmd> close <CR>", "close window"},
+    ["<leader>gb"] = {"<cmd> Telescope git_branches <CR>", "git branches"},
     ["<C-t>"] = {
       function()
         require("nvterm.terminal").toggle "float"

@@ -53,8 +53,8 @@ local options = {
       end,
    },
    mapping = {
-      ["<C-j>"] = require("cmp").mapping.select_next_item(),
-      ["<C-k>"] = require("cmp").mapping.select_prev_item(),
+      ["<C-j>"] = cmp.mapping.select_next_item(),
+      ["<C-k>"] = cmp.mapping.select_prev_item(),
       ["<CR>"] = cmp.mapping.confirm {
          behavior = cmp.ConfirmBehavior.Insert,
          select = true,
@@ -73,8 +73,9 @@ local options = {
       }),
    },
    sources = {
-      { name = "nvim_lsp", max_item_count = 8 },
-      { name = "path" },
+     { name = "luasnip" },
+     { name = "nvim_lsp", max_item_count = 8 },
+     { name = "path" },
    },
 }
 

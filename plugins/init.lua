@@ -15,11 +15,14 @@ return {
    ["vim-test/vim-test"] = {
      config = function()
        vim.g['test#strategy'] = 'neovim'
-       vim.g['test#neovim#start_normal'] = 1
      end
    },
    ["nvim-telescope/telescope-fzf-native.nvim"] = {
-     run = 'make',
+     run = 'make'
+   },
+   ["gmartsenkov/friendly-snippets"] = {
+      module = "cmp_nvim_lsp",
+      event = "InsertEnter"
    },
    ["vinibispo/ruby.nvim"] = {
      config = function()
