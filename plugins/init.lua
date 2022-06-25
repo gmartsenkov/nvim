@@ -8,10 +8,8 @@ return {
       end,
    },
    ["ahmedkhalf/project.nvim"] = {
-     after = 'telescope.nvim',
      config = function()
        require("project_nvim").setup {}
-       require('telescope').load_extension('projects')
      end
    },
    ["vim-test/vim-test"] = {
@@ -21,7 +19,7 @@ return {
      end
    },
    ["nvim-telescope/telescope-fzf-native.nvim"] = {
-     run = 'make'
+     run = 'make',
    },
    ["vinibispo/ruby.nvim"] = {
      config = function()
