@@ -35,7 +35,7 @@ M.plugins = {
 }
 
 M.ui = {
-   theme = "tomorrow_night",
+   theme = "onedark",
 }
 
 M.mappings = require "custom.mappings"
