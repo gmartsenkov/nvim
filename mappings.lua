@@ -32,7 +32,7 @@ M.lsp = {
     ["<leader>cd"] = {"<cmd> Telescope lsp_definitions <CR>", "lsp definition"},
     ["<leader>cr"] = {"<cmd> Telescope lsp_references <CR>", "lsp references"},
     ["<leader>cs"] = {"<cmd> Telescope lsp_document_symbols <CR>", "lsp document symbols"},
-    ["<leader>cw"] = {"<cmd> Telescope lsp_worspace_symbols <CR>", "lsp workspace symbols"},
+    ["<leader>cw"] = {"<cmd> Telescope lsp_workspace_symbols <CR>", "lsp workspace symbols"},
     ["<leader>ca"] = {
       function()
         vim.lsp.buf.code_action()
