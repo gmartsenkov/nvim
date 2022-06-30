@@ -50,21 +50,7 @@ M.nav = {
     ["<leader>wh"] = {"<cmd> split <CR>", "split horizontal"},
     ["<leader>wd"] = {"<cmd> close <CR>", "close window"},
     ["<leader>gb"] = {"<cmd> Telescope git_branches <CR>", "git branches"},
-    ["<C-t>"] = {
-      function()
-        require("nvterm.terminal").toggle "float"
-      end,
-      "   toggle floating term",
-    },
   },
-  t = {
-    ["<C-t>"] = {
-      function()
-        require("nvterm.terminal").toggle "float"
-      end,
-      "   toggle floating term",
-    },
-  }
 }
 
 return M
