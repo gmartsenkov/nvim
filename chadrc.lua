@@ -17,7 +17,8 @@ M.plugins = {
       ensure_installed = {
         "lua",
         "vim",
-        "ruby"
+        "ruby",
+        "javascript"
       },
       endwise = {
         enable = true,
