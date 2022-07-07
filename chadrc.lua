@@ -22,6 +22,9 @@ M.plugins = {
       endwise = {
         enable = true,
       },
+      indent = {
+        enable = true
+      }
     }
   },
   remove = {

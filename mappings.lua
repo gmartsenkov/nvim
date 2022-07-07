@@ -39,6 +39,12 @@ M.lsp = {
       end,
       "lsp action",
     },
+    ["<leader>cR"] = {
+      function()
+        vim.lsp.buf.rename()
+      end,
+      "lsp rename",
+    },
   }
 }
 
