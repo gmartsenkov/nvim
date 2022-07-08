@@ -30,7 +30,9 @@ return {
          end,
        }
 
-       vim.g["test#strategy"] = "tterm"
+       vim.g["test#strategy"] = "neovim"
+       vim.g["test#preserve_screen"] = 1
+       vim.g["ruby#use_binstubs"] = 0
      end
    },
    ["nvim-telescope/telescope-fzf-native.nvim"] = {
