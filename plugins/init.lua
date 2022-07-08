@@ -103,6 +103,7 @@ return {
           {
             pattern = "/test/(.*)/(.*)_test.exs",
             target = "/lib/%1/%2.ex",
+            context = "test"
           },
           {
             pattern = "/lib/(.*)/(.*).rb",
@@ -112,6 +113,7 @@ return {
           {
             pattern = "/spec/(.*)/(.*)_spec.rb",
             target = "/lib/%1/%2.rb",
+            context = "test"
           },
           {
             pattern = "/lib/(.*)/(.*).rb",
@@ -121,6 +123,7 @@ return {
           {
             pattern = "/spec/lib/(.*)/(.*)_spec.rb",
             target = "/lib/%1/%2.rb",
+            context = "test"
           },
         }})
     end
