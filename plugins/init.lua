@@ -12,7 +12,10 @@ return {
       require("project_nvim").setup {}
     end
   },
+  ["guns/vim-sexp"] = {},
+  ["tpope/vim-sexp-mappings-for-regular-people"] = {},
   ["tpope/vim-commentary"] = {},
+  ["tpope/vim-surround"] = {},
   ["gmartsenkov/vim-test"] = {
     config = function()
       vim.g["test#custom_alternate_file"] = function()
@@ -31,6 +34,7 @@ return {
       vim.g["ruby#use_binstubs"] = 0
     end
   },
+  ["Olical/conjure"] = {},
   ["nvim-telescope/telescope-fzf-native.nvim"] = {
     run = 'make'
   },
@@ -93,39 +97,7 @@ return {
   },
   ["gmartsenkov/other.nvim"] = {
     config = function()
-      require("other-nvim").setup({
-        mappings = {
-          {
-            pattern = "/lib/(.*)/(.*).ex",
-            target = "/test/%1/%2_test.exs",
-            context = "test"
-          },
-          {
-            pattern = "/test/(.*)/(.*)_test.exs",
-            target = "/lib/%1/%2.ex",
-            context = "test"
-          },
-          {
-            pattern = "/lib/(.*)/(.*).rb",
-            target = "/spec/%1/%2_spec.rb",
-            context = "test"
-          },
-          {
-            pattern = "/spec/(.*)/(.*)_spec.rb",
-            target = "/lib/%1/%2.rb",
-            context = "test"
-          },
-          {
-            pattern = "/lib/(.*)/(.*).rb",
-            target = "/spec/lib/%1/%2_spec.rb",
-            context = "test"
-          },
-          {
-            pattern = "/spec/lib/(.*)/(.*)_spec.rb",
-            target = "/lib/%1/%2.rb",
-            context = "test"
-          },
-        }})
+      require("custom.plugins.other").setup()
     end
   }
 }

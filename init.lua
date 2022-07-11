@@ -5,4 +5,4 @@ vim.api.nvim_exec([[ autocmd TermOpen * setlocal nonumber norelativenumber ]], f
 vim.api.nvim_exec([[ let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""']], false)
 vim.api.nvim_exec([[ set clipboard+=unnamedplus ]], false)
 vim.api.nvim_exec([[ set inccommand=nosplit ]], false)
-vim.cmd([[ autocmd FileType ruby,elixir,go,rust autocmd BufWritePre <buffer> %s/\s\+$//e ]])
+vim.cmd([[ autocmd FileType ruby,elixir,go,rust,clojure autocmd BufWritePre <buffer> %s/\s\+$//e ]])

@@ -48,6 +48,15 @@ M.lsp = {
   }
 }
 
+M.eval = {
+  n = {
+    ["<leader>eb"] = {"<cmd> ConjureEvalBuf <CR>", "eval buffer"},
+    ["<leader>ef"] = {"<cmd> ConjureEvalCurrentForm <CR>", "eval current form"},
+    ["<leader>er"] = {"<cmd> ConjureEvalRootForm <CR>", "eval root form"},
+    ["<leader>e!"] = {"<cmd> ConjureEvalReplaceForm <CR>", "eval and replace form"},
+  }
+}
+
 M.nav = {
   n = {
     ["<C-a>"] = {"<cmd> bprevious <CR>", "previous buffer"},
@@ -56,6 +65,7 @@ M.nav = {
     ["<leader>wh"] = {"<cmd> split <CR>", "split horizontal"},
     ["<leader>wd"] = {"<cmd> close <CR>", "close window"},
     ["<leader>gb"] = {"<cmd> Telescope git_branches <CR>", "git branches"},
+    ["<leader>o"] = {"<cmd> Other<CR>", "other file"},
   },
 }
 
