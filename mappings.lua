@@ -53,6 +53,7 @@ M.eval = {
     ["<leader>eb"] = {"<cmd> ConjureEvalBuf <CR>", "eval buffer"},
     ["<leader>ef"] = {"<cmd> ConjureEvalCurrentForm <CR>", "eval current form"},
     ["<leader>er"] = {"<cmd> ConjureEvalRootForm <CR>", "eval root form"},
+    ["<leader>ev"] = {"<cmd> ConjureEvalVisual <CR>", "eval visual"},
     ["<leader>e!"] = {"<cmd> ConjureEvalReplaceForm <CR>", "eval and replace form"},
   }
 }
@@ -67,6 +68,12 @@ M.nav = {
     ["<leader>gb"] = {"<cmd> Telescope git_branches <CR>", "git branches"},
     ["<leader>o"] = {"<cmd> Other<CR>", "other file"},
   },
+}
+
+M.nvimtree = {
+   n = {
+      ["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "   toggle nvimtree" },
+   },
 }
 
 return M
