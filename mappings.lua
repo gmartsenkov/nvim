@@ -54,7 +54,10 @@ M.eval = {
     ["<leader>ef"] = {"<cmd> ConjureEvalCurrentForm <CR>", "eval current form"},
     ["<leader>er"] = {"<cmd> ConjureEvalRootForm <CR>", "eval root form"},
     ["<leader>ev"] = {"<cmd> ConjureEvalVisual <CR>", "eval visual"},
+    ["<leader>ew"] = {"<cmd> ConjureEvalWord <CR>", "eval word"},
     ["<leader>e!"] = {"<cmd> ConjureEvalReplaceForm <CR>", "eval and replace form"},
+    ["<leader>et"] = {"<cmd> ConjureCljRunCurrentNsTests <CR>", "Run NS tests"},
+    ["<leader>eT"] = {"<cmd> ConjureCljRunAllTests <CR>", "Run all tests"},
   }
 }
 

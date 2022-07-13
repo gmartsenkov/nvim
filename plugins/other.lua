@@ -5,6 +5,16 @@ M.setup = function()
     rememberBuffers = false,
     mappings = {
       {
+        pattern = "/src/(.*)/(.*).clj",
+        target = "/test/%1/%2_test.clj",
+        context = "test"
+      },
+      {
+        pattern = "/test/(.*)/(.*)_test.clj",
+        target = "/src/%1/%2.clj",
+        context = "test"
+      },
+      {
         pattern = "/lib/(.*)/(.*).ex",
         target = "/test/%1/%2_test.exs",
         context = "test"
