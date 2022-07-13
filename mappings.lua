@@ -73,10 +73,10 @@ M.nav = {
   },
 }
 
-M.nvimtree = {
+M.disabled = {
    n = {
-      ["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "   toggle nvimtree" },
-   },
+      ["<leader>e"] = ""
+   }
 }
 
 return M
