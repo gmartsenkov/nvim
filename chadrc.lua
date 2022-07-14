@@ -24,12 +24,12 @@ M.plugins = {
         enable = true,
       },
       indent = {
-        enable = true
+        enable = false
       }
     }
   },
   remove = {
-    "rafamadriz/friendly-snippets"
+    "rafamadriz/friendly-snippets",
   },
   options = {
     lspconfig = {
