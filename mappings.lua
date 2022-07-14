@@ -14,6 +14,7 @@ M.telescope = {
     ["<leader>bd"] = {"<cmd> bdelete <CR>", "delete buffer"},
     ["<leader>bn"] = {"<cmd> enew <CR>", "new buffer"},
     ["<leader>pp"] = {"<cmd> Telescope projects <CR>", "switch project"},
+    ["<leader>ff"] = {"<cmd> Telescope file_browser path=%:p:h <CR>", "file browser"},
     ["<leader>/"] = {"<cmd> Telescope live_grep <CR>", "grep project"}
   }
 }

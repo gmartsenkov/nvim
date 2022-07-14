@@ -35,6 +35,7 @@ return {
     end
   },
   ["Olical/conjure"] = {},
+  ["nvim-telescope/telescope-file-browser.nvim"] = {},
   ["nvim-telescope/telescope-fzf-native.nvim"] = {
     run = 'make'
   },

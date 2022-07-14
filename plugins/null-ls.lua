@@ -17,7 +17,10 @@ local sources = {
    -- credo
    b.diagnostics.credo,
    -- rubocop
-   b.diagnostics.rubocop
+   b.diagnostics.rubocop,
+   -- clj_kondo
+   b.formatting.cljstyle,
+   b.diagnostics.clj_kondo
 }
 
 local M = {}

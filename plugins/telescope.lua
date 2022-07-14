@@ -72,7 +72,7 @@ local options = {
        -- the default case_mode is "smart_case"
      }
    },
-   extensions_list = { "themes", "terms", "fzf", "projects" },
+   extensions_list = { "themes", "terms", "fzf", "projects", "file_browser" },
 }
 
 local M = {}
