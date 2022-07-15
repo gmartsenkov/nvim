@@ -15,7 +15,7 @@ return {
   ["guns/vim-sexp"] = {},
   ["tpope/vim-sexp-mappings-for-regular-people"] = {},
   ["tpope/vim-commentary"] = {},
-  ["tpope/vim-surround"] = {},
+  --["tpope/vim-surround"] = {},
   ["gmartsenkov/vim-test"] = {
     config = function()
       vim.g["test#custom_alternate_file"] = function()
@@ -43,12 +43,11 @@ return {
     module = "cmp_nvim_lsp",
     event = "InsertEnter"
   },
-  ["vinibispo/ruby.nvim"] = {
+  ["folke/trouble.nvim"] = {
+    requires = "kyazdani42/nvim-web-devicons",
     config = function()
-      require("ruby_nvim").setup({
-        test_cmd = "bundle exec rspec"
-      })
-    end
+      require("trouble").setup {}
+   end
   },
   ["ray-x/go.nvim"] = {
     after = "nvim-lspconfig",

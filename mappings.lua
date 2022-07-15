@@ -46,6 +46,7 @@ M.lsp = {
       end,
       "lsp rename",
     },
+    ["<C-d>"] = {"<cmd> TroubleToggle <CR>", "toggle diagnostics"}
   }
 }
 

@@ -14,4 +14,11 @@ M.setup_lsp = function(attach, capabilities)
    end
 end
 
+vim.diagnostic.config {
+   virtual_text = false,
+   signs = true,
+   underline = true,
+   update_in_insert = false,
+}
+
 return M
