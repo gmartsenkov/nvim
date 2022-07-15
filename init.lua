@@ -6,5 +6,5 @@ vim.api.nvim_exec([[ let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g
 vim.api.nvim_exec([[ set clipboard+=unnamedplus ]], false)
 vim.api.nvim_exec([[ set inccommand=nosplit ]], false)
 vim.cmd([[ autocmd FileType ruby,elixir,go,rust,clojure autocmd BufWritePre <buffer> %s/\s\+$//e ]])
-vim.o.updatetime = 250
-vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+-- vim.o.updatetime = 250
+-- vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]

@@ -12,8 +12,9 @@ return {
       require("project_nvim").setup {}
     end
   },
-  ["guns/vim-sexp"] = {},
-  ["tpope/vim-sexp-mappings-for-regular-people"] = {},
+  ["AndrewRadev/splitjoin.vim"] = {},
+  -- ["guns/vim-sexp"] = {},
+  -- ["tpope/vim-sexp-mappings-for-regular-people"] = {},
   ["tpope/vim-commentary"] = {},
   --["tpope/vim-surround"] = {},
   ["gmartsenkov/vim-test"] = {
