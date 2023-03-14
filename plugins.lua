@@ -9,6 +9,14 @@ return {
     end
   },
   {
+    'prochri/telescope-all-recent.nvim',
+    lazy = false,
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    config = function()
+      require'telescope-all-recent'.setup{}
+    end
+  },
+  {
     "nvim-telescope/telescope-fzf-native.nvim",
     lazy = false,
     build = 'make'
@@ -17,7 +25,12 @@ return {
   { "nvim-telescope/telescope-file-browser.nvim", lazy = false },
   {
     "hrsh7th/nvim-cmp",
-    opts = {}
+    opts = {
+      mapping = {
+        ["<C-j>"] = require("cmp").mapping.select_next_item(),
+        ["<C-k>"] = require("cmp").mapping.select_prev_item(),
+      }
+    },
   },
   {
     "neovim/nvim-lspconfig",
