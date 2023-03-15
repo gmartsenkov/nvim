@@ -1,4 +1,9 @@
 return {
+  {
+    "gmartsenkov/jump-test.nvim",
+    lazy = false,
+    dependencies = { 'jghauser/mkdir.nvim' }
+  },
   { "RRethy/nvim-treesitter-endwise", lazy = false },
   { "jghauser/mkdir.nvim", lazy = false },
   {

@@ -21,8 +21,12 @@ M.telescope = {
 
 M.tests = {
   n = {
-    ["<leader>tt"] = {"<cmd> A<CR>", "test file"},
-    ["<leader>tT"] = {"<cmd> AV<CR>", "test file"},
+    ["<leader>tt"] = {
+      function()
+        require("jump-test").jump_to_test()
+      end,
+      "switch between test/implementation"
+    },
     ["<leader>tv"] = {"<cmd> TestFile <CR>", "test file"},
     ["<leader>ta"] = {"<cmd> TestSuite <CR>", "test project"},
     ["<leader>ts"] = {"<cmd> TestNearest <CR>", "test nearest"},
