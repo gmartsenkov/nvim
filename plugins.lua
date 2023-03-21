@@ -1,8 +1,17 @@
 return {
   {
-    "gmartsenkov/jump-test.nvim",
+    dir = "~/Development/jump-test",
     lazy = false,
-    dependencies = { 'jghauser/mkdir.nvim' }
+    dependencies = { 'jghauser/mkdir.nvim' },
+    config = function()
+      package.cpath = package.cpath .. ";/Users/gogo/Development/jump-test/lua/goto.so"
+      require("goto")
+    end
+  },
+  {
+    "TimUntersberger/neogit",
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    cmd = "Neogit"
   },
   { "RRethy/nvim-treesitter-endwise", lazy = false },
   { "jghauser/mkdir.nvim", lazy = false },
@@ -39,6 +48,12 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      "jose-elias-alvarez/null-ls.nvim",
+      config = function()
+        require "custom.configs.null-ls"
+      end,
+    },
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
@@ -110,6 +125,7 @@ return {
           ["<C-p>"] = require('telescope.actions').cycle_history_prev,
         },
       }
+      c.defaults.file_ignore_patterns = { "node_modules", "resources/public/js/", ".git/", ".shadow-cljs/" }
       c.extensions = {
         fzf = {
           fuzzy = false,                    -- false will only do exact matching
