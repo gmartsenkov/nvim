@@ -23,7 +23,7 @@ M.tests = {
   n = {
     ["<leader>tt"] = {
       function()
-        require("jump-test").jump_to_test()
+        require("goto").jump()
       end,
       "switch between test/implementation"
     },

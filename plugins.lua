@@ -1,12 +1,9 @@
 return {
   {
-    dir = "~/Development/jump-test",
+    "gmartsenkov/gotospec",
     lazy = false,
+    build = "make",
     dependencies = { 'jghauser/mkdir.nvim' },
-    config = function()
-      package.cpath = package.cpath .. ";/Users/gogo/Development/jump-test/lua/goto.so"
-      require("goto")
-    end
   },
   {
     "TimUntersberger/neogit",
