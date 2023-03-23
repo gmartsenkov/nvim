@@ -75,12 +75,18 @@ M.nav = {
         require('leap').leap { opts = { labels = {} } }
       end
     },
+    ["S"] = {
+      function ()
+        require('leap').leap { opts = { labels = {}}, backward = true }
+      end
+    },
     ["<leader>wv"] = {"<cmd> vsplit <CR>", "split vertical"},
     ["<leader>wh"] = {"<cmd> split <CR>", "split horizontal"},
     ["<leader>wd"] = {"<cmd> close <CR>", "close window"},
-    ["<leader>wf"] = {"<cmd> only <CR>", "focus window"},
+    ["<leader>wo"] = {"<cmd> only <CR>", "focus window"},
     ["<leader>gb"] = {"<cmd> Telescope git_branches <CR>", "git branches"},
     ["<leader>o"] = {"<cmd> Other<CR>", "other file"},
+    ["<leader>qq"] = {"<cmd> qa <CR>", "quit neovim"},
     ["<C-t>"] = {"<cmd> Ttoggle <CR>", "toggle terminal"},
     ["<C-Tab>"] = {
       function()
