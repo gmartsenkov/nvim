@@ -9,7 +9,7 @@ M.neogit = {
 M.telescope = {
   n = {
     ["<leader><leader>"] = {"<cmd> Telescope find_files hidden=true<CR>", "find files"},
-    ["<leader>x"] = {"<cmd> Telescope commands <CR>", "commands"},
+    ["<C-x>"] = {"<cmd> Telescope commands <CR>", "commands"},
     ["<leader>bb"] = {"<cmd> Telescope buffers <CR>", "find buffers"},
     ["<leader>bd"] = {"<cmd> Bdelete <CR>", "delete buffer"},
     ["<leader>bn"] = {"<cmd> enew <CR>", "new buffer"},
@@ -55,19 +55,6 @@ M.lsp = {
   }
 }
 
-M.eval = {
-  n = {
-    ["<leader>eb"] = {"<cmd> ConjureEvalBuf <CR>", "eval buffer"},
-    ["<leader>ef"] = {"<cmd> ConjureEvalCurrentForm <CR>", "eval current form"},
-    ["<leader>er"] = {"<cmd> ConjureEvalRootForm <CR>", "eval root form"},
-    ["<leader>ev"] = {"<cmd> ConjureEvalVisual <CR>", "eval visual"},
-    ["<leader>ew"] = {"<cmd> ConjureEvalWord <CR>", "eval word"},
-    ["<leader>e!"] = {"<cmd> ConjureEvalReplaceForm <CR>", "eval and replace form"},
-    ["<leader>et"] = {"<cmd> ConjureCljRunCurrentNsTests <CR>", "Run NS tests"},
-    ["<leader>eT"] = {"<cmd> ConjureCljRunAllTests <CR>", "Run all tests"},
-  }
-}
-
 M.nav = {
   n = {
     ["s"] = {
@@ -94,13 +81,9 @@ M.nav = {
       end,
       "goto prev buffer",
     },
+    ["<C-[>"] = { "<cmd> bprevious <CR>", "previous buffer" },
+    ["<C-]>"] = { "<cmd> bnext <CR>", "next buffer" }
   },
-}
-
-M.disabled = {
-   n = {
-      ["<leader>e"] = ""
-   }
 }
 
 return M
