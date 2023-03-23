@@ -71,11 +71,13 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {"RRethy/nvim-treesitter-textsubjects"},
     opts = {
       ensure_installed = {
         "lua",
         "vim",
         "ruby",
+        "rust"
       },
       endwise = {
         enable = true,
@@ -83,7 +85,16 @@ return {
       indent = {
         enable = true,
         disable = { 'ruby' }
-      }
+      },
+      textsubjects = {
+        enable = true,
+        prev_selection = ',', -- (Optional) keymap to select the previous selection
+        keymaps = {
+          ['.'] = 'textsubjects-smart',
+          [';'] = 'textsubjects-container-outer',
+          ['i;'] = 'textsubjects-container-inner',
+        },
+      },
     }
   },
   {
