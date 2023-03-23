@@ -23,7 +23,7 @@ M.tests = {
   n = {
     ["<leader>tt"] = {
       function()
-        require("goto").jump()
+        require("gotospec").jump()
       end,
       "switch between test/implementation"
     },
@@ -70,6 +70,11 @@ M.eval = {
 
 M.nav = {
   n = {
+    ["s"] = {
+      function ()
+        require('leap').leap { opts = { labels = {} } }
+      end
+    },
     ["<leader>wv"] = {"<cmd> vsplit <CR>", "split vertical"},
     ["<leader>wh"] = {"<cmd> split <CR>", "split horizontal"},
     ["<leader>wd"] = {"<cmd> close <CR>", "close window"},
