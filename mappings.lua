@@ -74,7 +74,6 @@ M.nav = {
     ["<leader>gb"] = {"<cmd> Telescope git_branches <CR>", "git branches"},
     ["<leader>o"] = {"<cmd> Other<CR>", "other file"},
     ["<leader>qq"] = {"<cmd> qa <CR>", "quit neovim"},
-    ["<C-t>"] = {"<cmd> Ttoggle <CR>", "toggle terminal"},
     ["<C-Tab>"] = {
       function()
         require("core.utils").tabuflinePrev()

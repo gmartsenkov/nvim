@@ -10,6 +10,12 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+lspconfig["elixirls"].setup {
+  cmd = { "/Users/gogo/.local/share/nvim/mason/bin/elixir-ls" },
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 
 vim.diagnostic.config {
    virtual_text = false,

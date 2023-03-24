@@ -1,4 +1,5 @@
 return {
+  {'akinsho/toggleterm.nvim', version = "*", lazy=false, opts = { direction = 'horizontal', open_mapping = [[<C-t>]]}},
   {
     "famiu/bufdelete.nvim",
     cmd = "Bdelete"
@@ -77,7 +78,8 @@ return {
         "lua",
         "vim",
         "ruby",
-        "rust"
+        "rust",
+        "elixir"
       },
       endwise = {
         enable = true,
@@ -121,7 +123,7 @@ return {
     "vim-test/vim-test",
     lazy = false,
     config = function()
-      vim.g["test#strategy"] = "neoterm"
+      vim.g["test#strategy"] = "toggleterm"
       vim.g["test#preserve_screen"] = 1
       vim.g["ruby#use_binstubs"] = 0
     end
