@@ -1,4 +1,5 @@
 return {
+  {"kkharji/sqlite.lua", lazy = false},
   {'akinsho/toggleterm.nvim', version = "*", lazy=false, opts = { direction = 'horizontal', open_mapping = [[<C-t>]]}},
   {
     "famiu/bufdelete.nvim",
@@ -100,11 +101,6 @@ return {
     }
   },
   {
-    "nvim-telescope/telescope-frecency.nvim",
-    lazy = false,
-    dependencies = {"kkharji/sqlite.lua"}
-  },
-  {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
@@ -135,7 +131,6 @@ return {
       "nvim-telescope/telescope-file-browser.nvim",
       "nvim-telescope/telescope-fzf-native.nvim",
       "ahmedkhalf/project.nvim",
-      "nvim-telescope/telescope-frecency.nvim"
     },
     opts = function()
       local c = require "plugins.configs.telescope"
@@ -158,7 +153,7 @@ return {
           -- the default case_mode is "smart_case"
         }
       }
-      c.extensions_list = { "themes", "terms", "projects", "file_browser", "smart_history", "frecency" }
+      c.extensions_list = { "themes", "terms", "projects", "file_browser", "smart_history" }
       return c
     end
   }

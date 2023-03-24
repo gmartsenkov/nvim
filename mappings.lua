@@ -33,6 +33,12 @@ M.tests = {
   }
 }
 
+M.utils = {
+  n = {
+    ["<leader>mp"] = {"<cmd> TermExec cmd='bundle exec rubocop' <CR>", "project rubocop"}
+  }
+}
+
 M.lsp = {
   n = {
     ["<leader>cd"] = {"<cmd> Telescope lsp_definitions <CR>", "lsp definition"},
