@@ -1,6 +1,6 @@
 return {
   {"kkharji/sqlite.lua", lazy = false},
-  {'akinsho/toggleterm.nvim', version = "*", lazy=false, opts = { direction = 'horizontal', open_mapping = [[<C-t>]]}},
+  {'akinsho/toggleterm.nvim', version = "*", lazy=false, opts = { close_on_exit = true, direction = 'horizontal', open_mapping = [[<C-t>]]}},
   {
     "famiu/bufdelete.nvim",
     cmd = "Bdelete"
@@ -119,7 +119,16 @@ return {
     "vim-test/vim-test",
     lazy = false,
     config = function()
-      vim.g["test#strategy"] = "toggleterm"
+      vim.g["test#custom_strategies"] = {
+        term = function (cmd)
+          local terminals = require("toggleterm.terminal").get_all()
+          for _, term in ipairs(terminals) do
+            vim.cmd(term.bufnr .. "bdelete!")
+          end
+          vim.cmd("TermExec cmd='" .. cmd .. "'")
+        end
+      }
+      vim.g["test#strategy"] = "term"
       vim.g["test#preserve_screen"] = 1
       vim.g["ruby#use_binstubs"] = 0
     end

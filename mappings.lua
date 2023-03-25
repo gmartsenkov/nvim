@@ -35,7 +35,16 @@ M.tests = {
 
 M.utils = {
   n = {
-    ["<leader>mp"] = {"<cmd> TermExec cmd='bundle exec rubocop' <CR>", "project rubocop"}
+
+    ["<leader>mp"] = {
+      function ()
+        local terminals = require("toggleterm.terminal").get_all()
+        for _, term in ipairs(terminals) do
+          vim.cmd(term.bufnr .. "bdelete!")
+        end
+        vim.cmd("TermExec cmd='bundle exec rubocop'")
+      end
+    }
   }
 }
 
