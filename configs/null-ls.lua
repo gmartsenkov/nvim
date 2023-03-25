@@ -19,7 +19,15 @@ local sources = {
   b.formatting.clang_format,
 
   --rust
-  b.formatting.rustfmt
+  b.formatting.rustfmt,
+
+  --ruby
+  b.formatting.rubocop,
+
+  --elixir
+  b.formatting.mix,
+  b.diagnostics.credo
+
 }
 
 null_ls.setup {

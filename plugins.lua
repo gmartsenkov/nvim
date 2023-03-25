@@ -1,9 +1,9 @@
 return {
   {"kkharji/sqlite.lua", lazy = false},
-  {'akinsho/toggleterm.nvim', 
+  {'akinsho/toggleterm.nvim',
     version = "*",
     lazy=false,
-    opts = { 
+    opts = {
       close_on_exit = true,
       direction = 'horizontal',
       open_mapping = [[<C-t>]],
@@ -120,14 +120,6 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("trouble").setup {}
-    end
-  },
-  {
-    "kassio/neoterm",
-    lazy = false,
-    config = function ()
-      vim.g["neoterm_default_mod"] = "botright"
-      vim.g["neoterm_autoscroll"] = 1
     end
   },
   {
