@@ -1,6 +1,21 @@
 return {
   {"kkharji/sqlite.lua", lazy = false},
-  {'akinsho/toggleterm.nvim', version = "*", lazy=false, opts = { close_on_exit = true, direction = 'horizontal', open_mapping = [[<C-t>]]}},
+  {'akinsho/toggleterm.nvim', 
+    version = "*",
+    lazy=false,
+    opts = { 
+      close_on_exit = true,
+      direction = 'horizontal',
+      open_mapping = [[<C-t>]],
+      size = function(term)
+        if term.direction == "horizontal" then
+          return 20
+        elseif term.direction == "vertical" then
+          return vim.o.columns * 0.4
+        end
+      end,
+    }
+  },
   {
     "famiu/bufdelete.nvim",
     cmd = "Bdelete"
