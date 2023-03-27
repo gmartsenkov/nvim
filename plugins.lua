@@ -126,6 +126,7 @@ return {
   {
     "vim-test/vim-test",
     lazy = false,
+    dependencies = { "gmartsenkov/gotospec" },
     config = function()
       vim.g["test#custom_strategies"] = {
         term = function (cmd)
@@ -139,6 +140,9 @@ return {
       vim.g["test#strategy"] = "term"
       vim.g["test#preserve_screen"] = 1
       vim.g["ruby#use_binstubs"] = 0
+      vim.g["test#custom_alternate_file"] = function ()
+        require("gotospec").jump()
+      end
     end
   },
   {
