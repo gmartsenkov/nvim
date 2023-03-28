@@ -87,6 +87,7 @@ M.nav = {
     ["<leader>wd"] = {"<cmd> close <CR>", "close window"},
     ["<leader>wo"] = {"<cmd> only <CR>", "focus window"},
     ["<leader>gb"] = {"<cmd> Telescope git_branches <CR>", "git branches"},
+    ["<leader>gc"] = {"<cmd> Telescope git_commits <CR>", "git commits"},
     ["<leader>o"] = {"<cmd> Other<CR>", "other file"},
     ["<leader>qq"] = {"<cmd> qa <CR>", "quit neovim"},
     ["<C-Tab>"] = {

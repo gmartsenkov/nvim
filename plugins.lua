@@ -1,4 +1,12 @@
 return {
+  {
+    "ruifm/gitlinker.nvim",
+    lazy = false,
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function ()
+      require"gitlinker".setup()
+    end
+  },
   {"kkharji/sqlite.lua", lazy = false},
   {'akinsho/toggleterm.nvim',
     version = "*",
@@ -174,7 +182,7 @@ return {
           -- the default case_mode is "smart_case"
         }
       }
-      c.extensions_list = { "themes", "terms", "projects", "file_browser", "smart_history" }
+      c.extensions_list = { "themes", "terms", "projects", "file_browser", "smart_history", "fzf" }
       return c
     end
   }
