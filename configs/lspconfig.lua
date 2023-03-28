@@ -16,11 +16,9 @@ lspconfig["elixirls"].setup {
   capabilities = capabilities,
 }
 
-
 vim.diagnostic.config {
-   virtual_text = false,
-   signs = true,
-   underline = true,
-   update_in_insert = false,
+  virtual_text = false,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
 }
-

@@ -26,8 +26,7 @@ local sources = {
 
   --elixir
   b.formatting.mix,
-  b.diagnostics.credo
-
+  b.diagnostics.credo,
 }
 
 null_ls.setup {
