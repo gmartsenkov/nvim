@@ -141,7 +141,7 @@ return {
       vim.g["test#preserve_screen"] = 1
       vim.g["ruby#use_binstubs"] = 0
       vim.g["test#custom_alternate_file"] = function ()
-        require("gotospec").jump()
+        return require("gotospec").jump_suggestion()
       end
     end
   },
