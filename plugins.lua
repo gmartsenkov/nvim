@@ -1,4 +1,11 @@
 return {
+  {
+    "kylechui/nvim-surround",
+    lazy = false,
+    config = function ()
+      require("nvim-surround").setup({})
+    end
+  },
   { "AndrewRadev/splitjoin.vim", lazy = false },
   { "andymass/vim-matchup", lazy = false },
   {

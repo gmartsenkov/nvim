@@ -30,6 +30,8 @@ M.tests = {
     ["<leader>tv"] = { "<cmd> TestFile <CR>", "test file" },
     ["<leader>ta"] = { "<cmd> TestSuite <CR>", "test project" },
     ["<leader>ts"] = { "<cmd> TestNearest <CR>", "test nearest" },
+    ["<leader>tl"] = { "<cmd> TestLast <CR>", "test last" },
+    ["<leader>tg"] = { "<cmd> TestVisit <CR>", "test visit last" },
   },
 }
 
