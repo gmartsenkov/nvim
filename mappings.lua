@@ -69,6 +69,12 @@ M.lsp = {
       end,
       "lsp rename",
     },
+    ["<leader>ch"] = {
+      function()
+        vim.lsp.buf.hover()
+      end,
+      "lsp hover",
+    },
     ["<C-d>"] = { "<cmd> TroubleToggle <CR>", "toggle diagnostics" },
   },
 }
