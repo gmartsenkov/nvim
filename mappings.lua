@@ -110,4 +110,10 @@ M.nav = {
   },
 }
 
+M.disabled = {
+  n = {
+    ["<leader>h"] = ""
+  }
+}
+
 return M
