@@ -24,6 +24,7 @@ return {
     opts = {
       close_on_exit = true,
       direction = "horizontal",
+      shade_terminals = false,
       open_mapping = [[<C-t>]],
       size = function(term)
         if term.direction == "horizontal" then
