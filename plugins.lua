@@ -89,6 +89,13 @@ return {
         ["<C-j>"] = require("cmp").mapping.select_next_item(),
         ["<C-k>"] = require("cmp").mapping.select_prev_item(),
       },
+      sources = {
+        { name = "nvim_lsp", max_item_count = 5 },
+        { name = "luasnip", max_item_count = 5 },
+        { name = "buffer", max_item_count = 5 },
+        { name = "nvim_lua", max_item_count = 5 },
+        { name = "path", max_item_count = 5 },
+      }
     },
   },
   {
