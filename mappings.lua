@@ -104,6 +104,14 @@ M.nav = {
   },
 }
 
+M.notes = {
+  n = {
+    ["<leader>nd"] = { "<cmd> ScribeOpen <CR>", "open default note" },
+    ["<leader>nn"] = { "<cmd> ScribeNew <CR>", "new note" },
+    ["<leader>nf"] = { "<cmd> ScribeFind <CR>", "new note" },
+  }
+}
+
 M.tabs = {
   n = {
     ["<leader>1"] = { "<cmd> tabnext 1 <CR>", "tab 1" },

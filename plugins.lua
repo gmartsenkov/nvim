@@ -6,6 +6,14 @@ return {
       require("nvim-surround").setup({})
     end
   },
+  {
+    "Ostralyan/scribe.nvim",
+    cmd = { "ScribeOpen", "ScribeFind", "ScribeNew" },
+    dependencies = { "nvim-telescope/telescope.nvim", "MunifTanjim/nui.nvim" },
+    config = function ()
+      require("scribe").setup{}
+    end
+  },
   { "AndrewRadev/splitjoin.vim", lazy = false },
   { "andymass/vim-matchup", lazy = false },
   {
