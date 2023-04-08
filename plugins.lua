@@ -40,12 +40,10 @@ return {
     cmd = "Bdelete",
   },
   {
-    "ggandor/leap.nvim",
-    lazy = false,
+    "phaazon/hop.nvim",
+    cmd = { "HopWord", "HopChar1", "HopChar2", "HopLine", "HopAnywhere"},
     config = function()
-      require("leap").add_default_mappings()
-      vim.api.nvim_set_hl(0, "LeapBackdrop", { fg = "grey" })
-      vim.api.nvim_set_hl(0, "LeapLabelPrimary", { fg = "red" })
+      require("hop").setup{}
     end,
   },
   {
@@ -65,7 +63,9 @@ return {
     "ahmedkhalf/project.nvim",
     lazy = false,
     config = function()
-      require("project_nvim").setup {}
+      require("project_nvim").setup {
+        scope_chdir = 'tab'
+      }
     end,
   },
   {

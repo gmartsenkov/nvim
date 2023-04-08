@@ -80,17 +80,11 @@ M.lsp = {
 }
 
 M.nav = {
+  i = {
+    ["<C-s>"] = { "<cmd> HopChar2 <CR>", "hop char 2"},
+  },
   n = {
-    ["s"] = {
-      function()
-        require("leap").leap { opts = { labels = {} } }
-      end,
-    },
-    ["S"] = {
-      function()
-        require("leap").leap { opts = { labels = {} }, backward = true }
-      end,
-    },
+    ["<C-s>"] = { "<cmd> HopChar2 <CR>", "hop char 2"},
     ["<leader>wv"] = { "<cmd> vsplit <CR>", "split vertical" },
     ["<leader>wh"] = { "<cmd> split <CR>", "split horizontal" },
     ["<leader>wd"] = { "<cmd> close <CR>", "close window" },
@@ -112,10 +106,11 @@ M.nav = {
 
 M.tabs = {
   n = {
-    ["<leader><tab>1"] = { "<cmd> tabnext 1 <CR>", "tab 1" },
-    ["<leader><tab>2"] = { "<cmd> tabnext 2 <CR>", "tab 2" },
-    ["<leader><tab>3"] = { "<cmd> tabnext 3 <CR>", "tab 3" },
-    ["<leader><tab>4"] = { "<cmd> tabnext 4 <CR>", "tab 4" },
+    ["<leader>1"] = { "<cmd> tabnext 1 <CR>", "tab 1" },
+    ["<leader>2"] = { "<cmd> tabnext 2 <CR>", "tab 2" },
+    ["<leader>3"] = { "<cmd> tabnext 3 <CR>", "tab 3" },
+    ["<leader>4"] = { "<cmd> tabnext 4 <CR>", "tab 4" },
+    ["<leader>5"] = { "<cmd> tabnext 5 <CR>", "tab 5" },
     ["<leader><tab>n"] = { "<cmd> tabnew <CR>", "create tab" },
     ["<leader><tab>d"] = { "<cmd> tabclose <CR>", "close current tab" },
   }
