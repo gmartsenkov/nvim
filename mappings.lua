@@ -8,7 +8,15 @@ M.neogit = {
 
 M.telescope = {
   n = {
-    ["<leader><leader>"] = { "<cmd> Telescope find_files hidden=true<CR>", "find files" },
+    ["<leader><leader>"] = {
+      function()
+        require('telescope.builtin').find_files({
+          hidden = true,
+          cwd = require("root").find() or vim.fn.expand('%:p:h')
+        })
+      end,
+      "find files"
+    },
     ["<C-x>"] = { "<cmd> Telescope commands <CR>", "commands" },
     ["<leader>bb"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
     ["<leader>bd"] = { "<cmd> Bdelete <CR>", "delete buffer" },
@@ -23,7 +31,9 @@ M.tests = {
   n = {
     ["<leader>tt"] = {
       function()
-        require("gotospec").jump()
+        require("gotospec").jump(
+          require("root").find()
+        )
       end,
       "switch between test/implementation",
     },
@@ -37,7 +47,6 @@ M.tests = {
 
 M.utils = {
   n = {
-
     ["<leader>mp"] = {
       function()
         local terminals = require("toggleterm.terminal").get_all()

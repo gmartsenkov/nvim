@@ -1,5 +1,11 @@
 return {
   {
+    "gmartsenkov/root.nvim",
+    lazy = false,
+    config = true,
+    build = "make"
+  },
+  {
     "kylechui/nvim-surround",
     lazy = false,
     config = function ()
@@ -55,10 +61,11 @@ return {
     end,
   },
   {
-    "gmartsenkov/gotospec",
+    "gmartsenkov/gotospec.nvim",
     lazy = false,
     build = "make",
-    dependencies = { "jghauser/mkdir.nvim" },
+    dependencies = { "jghauser/mkdir.nvim", "gmartsenkov/root.nvim" },
+    config = true,
   },
   {
     "TimUntersberger/neogit",
@@ -150,7 +157,7 @@ return {
   {
     "vim-test/vim-test",
     lazy = false,
-    dependencies = { "gmartsenkov/gotospec" },
+    dependencies = { "gmartsenkov/gotospec.nvim" },
     config = function()
       vim.g["test#custom_strategies"] = {
         term = function(cmd)
@@ -165,7 +172,9 @@ return {
       vim.g["test#preserve_screen"] = 1
       vim.g["ruby#use_binstubs"] = 0
       vim.g["test#custom_alternate_file"] = function()
-        return require("gotospec").jump_suggestion()
+        return require("gotospec").jump_suggestion(
+          require("root").find()
+        )
       end
     end,
   },
