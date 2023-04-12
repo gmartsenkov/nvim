@@ -1,11 +1,5 @@
 local M = {}
 
-M.neogit = {
-  n = {
-    ["<leader>gg"] = { "<cmd> Neogit <CR>", "neogit" },
-  },
-}
-
 M.telescope = {
   n = {
     ["<leader><leader>"] = {
@@ -98,8 +92,6 @@ M.nav = {
     ["<leader>wh"] = { "<cmd> split <CR>", "split horizontal" },
     ["<leader>wd"] = { "<cmd> close <CR>", "close window" },
     ["<leader>wo"] = { "<cmd> only <CR>", "focus window" },
-    ["<leader>gb"] = { "<cmd> Telescope git_branches <CR>", "git branches" },
-    ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "git commits" },
     ["<leader>o"] = { "<cmd> Other<CR>", "other file" },
     ["<leader>qq"] = { "<cmd> qa <CR>", "quit neovim" },
     ["<C-Tab>"] = {
@@ -111,6 +103,15 @@ M.nav = {
     ["<C-[>"] = { "<cmd> bprevious <CR>", "previous buffer" },
     ["<C-]>"] = { "<cmd> bnext <CR>", "next buffer" },
   },
+}
+
+M.git = {
+  n = {
+    ["<leader>gg"] = { "<cmd> Neogit <CR>", "neogit" },
+    ["<leader>gb"] = { "<cmd> Telescope git_branches <CR>", "git branches" },
+    ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "git commits" },
+    ["<leader>gB"] = { "<cmd> Telescope advanced_git_search search_log_content_file<CR>", "current file commits" },
+  }
 }
 
 M.notes = {
