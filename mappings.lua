@@ -123,11 +123,11 @@ M.notes = {
 
 M.tabs = {
   n = {
-    ["<leader>1"] = { "<cmd> tabnext 1 <CR>", "tab 1" },
-    ["<leader>2"] = { "<cmd> tabnext 2 <CR>", "tab 2" },
-    ["<leader>3"] = { "<cmd> tabnext 3 <CR>", "tab 3" },
-    ["<leader>4"] = { "<cmd> tabnext 4 <CR>", "tab 4" },
-    ["<leader>5"] = { "<cmd> tabnext 5 <CR>", "tab 5" },
+    ["<leader><tab>1"] = { "<cmd> tabnext 1 <CR>", "tab 1" },
+    ["<leader><tab>2"] = { "<cmd> tabnext 2 <CR>", "tab 2" },
+    ["<leader><tab>3"] = { "<cmd> tabnext 3 <CR>", "tab 3" },
+    ["<leader><tab>4"] = { "<cmd> tabnext 4 <CR>", "tab 4" },
+    ["<leader><tab>5"] = { "<cmd> tabnext 5 <CR>", "tab 5" },
     ["<leader><tab>n"] = { "<cmd> tabnew <CR>", "create tab" },
     ["<leader><tab>d"] = { "<cmd> tabclose <CR>", "close current tab" },
   }
