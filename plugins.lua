@@ -1,5 +1,14 @@
 return {
   {
+    "aaronhallaert/advanced-git-search.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "tpope/vim-fugitive",
+      "tpope/vim-rhubarb",
+    },
+  },
+  {
     "gmartsenkov/root.nvim",
     lazy = false,
     config = true,
@@ -206,8 +215,18 @@ return {
           case_mode = "smart_case", -- or "ignore_case" or "respect_case"
           -- the default case_mode is "smart_case"
         },
+        advanced_git_search = {
+          -- fugitive or diffview
+          diff_plugin = "fugitive",
+          -- customize git in previewer 
+          -- e.g. flags such as { "--no-pager" }, or { "-c", "delta.side-by-side=false" }
+          git_flags = {},
+          -- customize git diff in previewer 
+          -- e.g. flags such as { "--raw" }
+          git_diff_flags = {},
+        }
       }
-      c.extensions_list = { "themes", "terms", "projects", "file_browser", "smart_history", "fzf" }
+      c.extensions_list = { "themes", "terms", "projects", "file_browser", "smart_history", "fzf", "advanced_git_search" }
       return c
     end,
   },
