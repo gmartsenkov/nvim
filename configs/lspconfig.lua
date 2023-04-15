@@ -2,7 +2,7 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-local servers = { "gopls", "solargraph", "rust_analyzer", "tsserver", "clojure_lsp" }
+local servers = { "gopls", "solargraph", "tsserver", "clojure_lsp" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -10,10 +10,23 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
 lspconfig["elixirls"].setup {
   cmd = { "/Users/gogo/.local/share/nvim/mason/bin/elixir-ls" },
   on_attach = on_attach,
   capabilities = capabilities,
+}
+
+lspconfig["rust_analyzer"].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    ["rust-analyzer"] = {
+      checkOnSave = {
+        command = "clippy",
+      },
+    },
+  }
 }
 
 vim.diagnostic.config {
