@@ -1,43 +1,31 @@
 return {
   {
-    "aaronhallaert/advanced-git-search.nvim",
-    lazy = false,
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "tpope/vim-fugitive",
-      "tpope/vim-rhubarb",
-    },
+    "saecki/crates.nvim",
+    tag = "v0.3.0",
+    requires = { "nvim-lua/plenary.nvim" },
+    event = { "BufRead Cargo.toml" },
+    config = true
   },
   {
     "gmartsenkov/root.nvim",
     lazy = false,
     config = true,
-    build = "make"
+    build = "make",
   },
   {
-    "kylechui/nvim-surround",
+    "echasnovski/mini.nvim",
+    version = "*",
     lazy = false,
-    config = function ()
-      require("nvim-surround").setup({})
-    end
+    config = function()
+      require("mini.surround").setup()
+      require("mini.splitjoin").setup()
+    end,
   },
-  {
-    "Ostralyan/scribe.nvim",
-    cmd = { "ScribeOpen", "ScribeFind", "ScribeNew" },
-    dependencies = { "nvim-telescope/telescope.nvim", "MunifTanjim/nui.nvim" },
-    config = function ()
-      require("scribe").setup{}
-    end
-  },
-  { "AndrewRadev/splitjoin.vim", lazy = false },
-  { "andymass/vim-matchup", lazy = false },
   {
     "ruifm/gitlinker.nvim",
     lazy = false,
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("gitlinker").setup()
-    end,
+    config = true,
   },
   { "kkharji/sqlite.lua", lazy = false },
   {
@@ -58,15 +46,12 @@ return {
       end,
     },
   },
-  {
-    "famiu/bufdelete.nvim",
-    cmd = "Bdelete",
-  },
+  { "famiu/bufdelete.nvim", cmd = "Bdelete" },
   {
     "phaazon/hop.nvim",
-    cmd = { "HopWord", "HopChar1", "HopChar2", "HopLine", "HopAnywhere"},
+    cmd = { "HopWord", "HopChar1", "HopChar2", "HopLine", "HopAnywhere" },
     config = function()
-      require("hop").setup{}
+      require("hop").setup {}
     end,
   },
   {
@@ -82,29 +67,16 @@ return {
     cmd = "Neogit",
   },
   { "RRethy/nvim-treesitter-endwise", lazy = false },
-  { "jghauser/mkdir.nvim", lazy = false },
   {
     "ahmedkhalf/project.nvim",
     lazy = false,
     config = function()
       require("project_nvim").setup {
-        scope_chdir = 'tab'
+        scope_chdir = "tab",
       }
     end,
   },
-  {
-    "prochri/telescope-all-recent.nvim",
-    lazy = false,
-    dependencies = { "nvim-telescope/telescope.nvim" },
-    config = function()
-      require("telescope-all-recent").setup {}
-    end,
-  },
-  {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    lazy = false,
-    build = "make",
-  },
+  { "nvim-telescope/telescope-fzf-native.nvim", lazy = false, build = "make" },
   { "nvim-telescope/telescope-smart-history.nvim", lazy = false },
   { "nvim-telescope/telescope-file-browser.nvim", lazy = false },
   {
@@ -115,12 +87,13 @@ return {
         ["<C-k>"] = require("cmp").mapping.select_prev_item(),
       },
       sources = {
-        { name = "nvim_lsp", max_item_count = 5 },
         { name = "luasnip", max_item_count = 5 },
+        { name = "nvim_lsp", max_item_count = 5 },
+        { name = "crates", max_items_count = 10 },
         { name = "buffer", max_item_count = 5 },
         { name = "nvim_lua", max_item_count = 5 },
         { name = "path", max_item_count = 5 },
-      }
+      },
     },
   },
   {
@@ -181,9 +154,7 @@ return {
       vim.g["test#preserve_screen"] = 1
       vim.g["ruby#use_binstubs"] = 0
       vim.g["test#custom_alternate_file"] = function()
-        return require("gotospec").jump_suggestion(
-          require("root").find()
-        )
+        return require("gotospec").jump_suggestion(require("root").find())
       end
     end,
   },
@@ -218,15 +189,15 @@ return {
         advanced_git_search = {
           -- fugitive or diffview
           diff_plugin = "fugitive",
-          -- customize git in previewer 
+          -- customize git in previewer
           -- e.g. flags such as { "--no-pager" }, or { "-c", "delta.side-by-side=false" }
           git_flags = {},
-          -- customize git diff in previewer 
+          -- customize git diff in previewer
           -- e.g. flags such as { "--raw" }
           git_diff_flags = {},
-        }
+        },
       }
-      c.extensions_list = { "themes", "terms", "projects", "file_browser", "smart_history", "fzf", "advanced_git_search" }
+      c.extensions_list = { "themes", "terms", "projects", "file_browser", "smart_history", "fzf" }
       return c
     end,
   },
