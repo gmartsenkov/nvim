@@ -27,6 +27,9 @@ local sources = {
   --elixir
   b.formatting.mix,
   b.diagnostics.credo,
+
+  --clojure
+  b.diagnostics.clj_kondo
 }
 
 null_ls.setup {

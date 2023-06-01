@@ -41,6 +41,14 @@ M.tests = {
 
 M.utils = {
   n = {
+    ["<Esc>"] = {
+      function()
+        local terminals = require("toggleterm.terminal").get_all()
+        for _, term in ipairs(terminals) do
+          require("toggleterm.ui").close(term)
+        end
+      end,
+    },
     ["<leader>mp"] = {
       function()
         local terminals = require("toggleterm.terminal").get_all()
