@@ -11,6 +11,8 @@ vim.cmd([[ autocmd FileType ruby,elixir,go,rust,clojure autocmd BufWritePre <buf
 -- vim.cmd([[autoread | au CursorHold * checktime | call feedkeys("lh")]])
 vim.api.nvim_exec([[let g:neovide_cursor_animation_length=0]], false)
 vim.api.nvim_exec([[let g:neovide_cursor_trail_length=0]], false)
+vim.api.nvim_exec('autocmd BufEnter *.cljs let g:conjure#client#clojure#nrepl#connection#port_files = [".shadow-cljs/nrepl.port", ".nrepl-port"]', false)
+vim.api.nvim_exec('autocmd BufEnter *.clj,*.cljc let g:conjure#client#clojure#nrepl#connection#port_files = [".nrepl-port", ".shadow-cljs/nrepl.port"]', false)
 vim.g.snipmate_snippets_path = "/Users/gogo/.config/nvim/lua/custom/lua_snippets"
 
 if vim.g.neovide then
