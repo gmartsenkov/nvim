@@ -61,9 +61,17 @@ M.utils = {
 }
 
 M.conjure = {
+  v = {
+    ["<leader>ev"] = { "<ESC><cmd> ConjureEvalVisual <CR>", "eval visual" },
+  },
   n = {
     ["<leader>eb"] = { "<cmd> ConjureEvalBuf <CR>", "eval buffer" },
-    ["<leader>ev"] = { "<cmd> ConjureEvalVisual <CR>", "eval visual" },
+    ["<leader>ef"] = { "<cmd> ConjureEvalCurrentForm <CR>", "eval current form" },
+    ["<leader>eF"] = { "<cmd> ConjureEvalCommentCurrentForm <CR>", "eval current form" },
+    ["<leader>er"] = { "<cmd> ConjureEvalRootForm <CR>", "eval root form" },
+    ["<leader>eR"] = { "<cmd> ConjureEvalCommentRootForm <CR>", "eval root form" },
+    ["<leader>ew"] = { "<cmd> ConjureEvalWord <CR>", "eval word" },
+    ["<leader>eW"] = { "<cmd> ConjureEvalCommentWord <CR>", "eval word" },
   },
 }
 
