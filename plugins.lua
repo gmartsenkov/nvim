@@ -1,7 +1,11 @@
 return {
+  { "Olical/conjure", lazy =  false },
+  { "jaawerth/fennel.vim", lazy = false },
+  { "rktjmp/hotpot.nvim", lazy = false, config = true },
   { "tpope/vim-fugitive", lazy = false },
   {
     "williamboman/mason-lspconfig",
+    dependencies = { "williamboman/mason.nvim" },
     lazy = false,
     opts = {
       ensure_installed = {
