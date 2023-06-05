@@ -43,6 +43,7 @@ M.utils = {
   n = {
     ["<Esc>"] = {
       function()
+        vim.cmd("noh")
         local terminals = require("toggleterm.terminal").get_all()
         for _, term in ipairs(terminals) do
           require("toggleterm.ui").close(term)
