@@ -8,12 +8,14 @@ return {
       vim.g.sexp_filetypes = "clojure,fennel"
     end,
   },
+  { "tpope/vim-surround", lazy = false },
+  { "tpope/vim-repeat", lazy = false },
   {
     "tpope/vim-sexp-mappings-for-regular-people",
     ft = { "fennel", "clojure" },
     dependencies = { "guns/vim-sexp", "tpope/vim-repeat", "tpope/vim-surround" },
   },
-  { "Olical/conjure", lazy = false },
+  { "Olical/conjure", ft = {"fennel", "clojure"} },
   { "jaawerth/fennel.vim", lazy = false },
   { "rktjmp/hotpot.nvim", lazy = false, config = true },
   { "tpope/vim-fugitive", lazy = false },
@@ -98,7 +100,7 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     cmd = "Neogit",
   },
-  { "RRethy/nvim-treesitter-endwise", lazy = false },
+  { "RRethy/nvim-treesitter-endwise", ft = {"ruby", "elixir", "lua", "bash"} },
   {
     "ahmedkhalf/project.nvim",
     lazy = false,
