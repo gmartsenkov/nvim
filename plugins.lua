@@ -101,6 +101,7 @@ return {
         ["<C-j>"] = require("cmp").mapping.select_next_item(),
         ["<C-k>"] = require("cmp").mapping.select_prev_item(),
         ["<Up>"] = require("cmp").mapping.select_prev_item(),
+        ["<S-CR>"] = require("cmp").mapping.abort(),
       },
       sources = {
         { name = "luasnip", max_item_count = 5 },
