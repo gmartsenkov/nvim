@@ -1,5 +1,19 @@
 return {
-  { "Olical/conjure", lazy =  false },
+  {
+    "guns/vim-sexp",
+    lazy = false,
+    ft = { "fennel", "clojure" },
+    config = function()
+      vim.g.sexp_enable_insert_mode_mappings = 0
+      vim.g.sexp_filetypes = "clojure,fennel"
+    end,
+  },
+  {
+    "tpope/vim-sexp-mappings-for-regular-people",
+    ft = { "fennel", "clojure" },
+    dependencies = { "guns/vim-sexp", "tpope/vim-repeat", "tpope/vim-surround" },
+  },
+  { "Olical/conjure", lazy = false },
   { "jaawerth/fennel.vim", lazy = false },
   { "rktjmp/hotpot.nvim", lazy = false, config = true },
   { "tpope/vim-fugitive", lazy = false },
@@ -35,7 +49,7 @@ return {
     version = "*",
     lazy = false,
     config = function()
-      require("mini.surround").setup()
+      -- require("mini.surround").setup()
       require("mini.splitjoin").setup()
     end,
   },

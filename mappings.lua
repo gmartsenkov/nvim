@@ -4,12 +4,12 @@ M.telescope = {
   n = {
     ["<leader><leader>"] = {
       function()
-        require('telescope.builtin').find_files({
+        require("telescope.builtin").find_files {
           hidden = true,
-          cwd = require("root").find() or vim.fn.expand('%:p:h')
-        })
+          cwd = require("root").find() or vim.fn.expand "%:p:h",
+        }
       end,
-      "find files"
+      "find files",
     },
     ["<C-x>"] = { "<cmd> Telescope commands <CR>", "commands" },
     ["<leader>bb"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
@@ -25,9 +25,7 @@ M.tests = {
   n = {
     ["<leader>tt"] = {
       function()
-        require("gotospec").jump(
-          require("root").find()
-        )
+        require("gotospec").jump(require("root").find())
       end,
       "switch between test/implementation",
     },
@@ -43,7 +41,7 @@ M.utils = {
   n = {
     ["<Esc>"] = {
       function()
-        vim.cmd("noh")
+        vim.cmd "noh"
         local terminals = require("toggleterm.terminal").get_all()
         for _, term in ipairs(terminals) do
           require("toggleterm.ui").close(term)
@@ -59,6 +57,13 @@ M.utils = {
         vim.cmd "TermExec cmd='bundle exec rubocop'"
       end,
     },
+  },
+}
+
+M.conjure = {
+  n = {
+    ["<leader>eb"] = { "<cmd> ConjureEvalBuf <CR>", "eval buffer" },
+    ["<leader>ev"] = { "<cmd> ConjureEvalVisual <CR>", "eval visual" },
   },
 }
 
@@ -93,10 +98,10 @@ M.lsp = {
 
 M.nav = {
   i = {
-    ["<C-s>"] = { "<cmd> HopChar2 <CR>", "hop char 2"},
+    ["<C-s>"] = { "<cmd> HopChar2 <CR>", "hop char 2" },
   },
   n = {
-    ["<C-s>"] = { "<cmd> HopChar2 <CR>", "hop char 2"},
+    ["<C-s>"] = { "<cmd> HopChar2 <CR>", "hop char 2" },
     ["<leader>wv"] = { "<cmd> vsplit <CR>", "split vertical" },
     ["<leader>wh"] = { "<cmd> split <CR>", "split horizontal" },
     ["<leader>wd"] = { "<cmd> close <CR>", "close window" },
@@ -120,7 +125,7 @@ M.git = {
     ["<leader>gb"] = { "<cmd> Telescope git_branches <CR>", "git branches" },
     ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "git commits" },
     ["<leader>gB"] = { "<cmd> Telescope advanced_git_search search_log_content_file<CR>", "current file commits" },
-  }
+  },
 }
 
 M.notes = {
@@ -128,7 +133,7 @@ M.notes = {
     ["<leader>nd"] = { "<cmd> ScribeOpen <CR>", "open default note" },
     ["<leader>nn"] = { "<cmd> ScribeNew <CR>", "new note" },
     ["<leader>nf"] = { "<cmd> ScribeFind <CR>", "new note" },
-  }
+  },
 }
 
 M.tabs = {
@@ -140,13 +145,13 @@ M.tabs = {
     ["<leader><tab>5"] = { "<cmd> tabnext 5 <CR>", "tab 5" },
     ["<leader><tab>n"] = { "<cmd> tabnew <CR>", "create tab" },
     ["<leader><tab>d"] = { "<cmd> tabclose <CR>", "close current tab" },
-  }
+  },
 }
 
 M.disabled = {
   n = {
-    ["<leader>h"] = ""
-  }
+    ["<leader>h"] = "",
+  },
 }
 
 return M
