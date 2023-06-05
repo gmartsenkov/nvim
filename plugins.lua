@@ -15,7 +15,7 @@ return {
     ft = { "fennel", "clojure" },
     dependencies = { "guns/vim-sexp", "tpope/vim-repeat", "tpope/vim-surround" },
   },
-  { "Olical/conjure", ft = {"fennel", "clojure"} },
+  { "Olical/conjure", ft = { "fennel", "clojure" } },
   { "jaawerth/fennel.vim", lazy = false },
   { "rktjmp/hotpot.nvim", lazy = false, config = true },
   { "tpope/vim-fugitive", lazy = false },
@@ -100,7 +100,7 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     cmd = "Neogit",
   },
-  { "RRethy/nvim-treesitter-endwise", ft = {"ruby", "elixir", "lua", "bash"} },
+  { "RRethy/nvim-treesitter-endwise", ft = { "ruby", "elixir", "lua", "bash" } },
   {
     "ahmedkhalf/project.nvim",
     lazy = false,
