@@ -36,7 +36,7 @@ return {
   {
     "saecki/crates.nvim",
     tag = "v0.3.0",
-    requires = { "nvim-lua/plenary.nvim" },
+    dependencies = { "nvim-lua/plenary.nvim" },
     event = { "BufRead Cargo.toml" },
     config = true,
   },
@@ -101,7 +101,7 @@ return {
     cmd = "Neogit",
   },
   { "RRethy/nvim-treesitter-endwise", ft = { "ruby", "elixir", "lua", "bash" } },
-  { "nvim-telescope/telescope-project.nvim", lazy = false, },
+  { "nvim-telescope/telescope-project.nvim", lazy = false },
   { "nvim-telescope/telescope-fzf-native.nvim", lazy = false, build = "make" },
   { "nvim-telescope/telescope-smart-history.nvim", lazy = false },
   { "nvim-telescope/telescope-file-browser.nvim", lazy = false },
@@ -198,7 +198,7 @@ return {
     lazy = false,
     opts = function()
       local c = require "plugins.configs.telescope"
-      local project_actions = require("telescope._extensions.project.actions")
+      local project_actions = require "telescope._extensions.project.actions"
       c.defaults.mappings = {
         i = {
           ["<esc>"] = require("telescope.actions").close,
@@ -218,7 +218,7 @@ return {
           on_project_selected = function(prompt_bufnr)
             -- Do anything you want in here. For example:
             project_actions.change_working_directory(prompt_bufnr, false)
-          end
+          end,
         },
         fzf = {
           fuzzy = false, -- false will only do exact matching
