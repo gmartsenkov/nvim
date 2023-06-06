@@ -101,15 +101,7 @@ return {
     cmd = "Neogit",
   },
   { "RRethy/nvim-treesitter-endwise", ft = { "ruby", "elixir", "lua", "bash" } },
-  {
-    "ahmedkhalf/project.nvim",
-    lazy = false,
-    config = function()
-      require("project_nvim").setup {
-        scope_chdir = "tab",
-      }
-    end,
-  },
+  { "nvim-telescope/telescope-project.nvim", lazy = false, },
   { "nvim-telescope/telescope-fzf-native.nvim", lazy = false, build = "make" },
   { "nvim-telescope/telescope-smart-history.nvim", lazy = false },
   { "nvim-telescope/telescope-file-browser.nvim", lazy = false },
@@ -201,10 +193,12 @@ return {
       "nvim-telescope/telescope-smart-history.nvim",
       "nvim-telescope/telescope-file-browser.nvim",
       "nvim-telescope/telescope-fzf-native.nvim",
-      "ahmedkhalf/project.nvim",
+      "nvim-telescope/telescope-project.nvim",
     },
+    lazy = false,
     opts = function()
       local c = require "plugins.configs.telescope"
+      local project_actions = require("telescope._extensions.project.actions")
       c.defaults.mappings = {
         i = {
           ["<esc>"] = require("telescope.actions").close,
@@ -218,6 +212,14 @@ return {
       }
       c.defaults.file_ignore_patterns = { "node_modules", "resources/public/js/", ".git/", ".shadow-cljs/" }
       c.extensions = {
+        project = {
+          base_dirs = { "~/Development/" },
+          base_dirs = { "~/.config/nvim/lua/" },
+          on_project_selected = function(prompt_bufnr)
+            -- Do anything you want in here. For example:
+            project_actions.change_working_directory(prompt_bufnr, false)
+          end
+        },
         fzf = {
           fuzzy = false, -- false will only do exact matching
           override_generic_sorter = true, -- override the generic sorter
@@ -236,7 +238,7 @@ return {
           git_diff_flags = {},
         },
       }
-      c.extensions_list = { "themes", "terms", "projects", "file_browser", "smart_history", "fzf" }
+      c.extensions_list = { "themes", "terms", "file_browser", "smart_history", "fzf", "project" }
       return c
     end,
   },
