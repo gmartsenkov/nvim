@@ -30,7 +30,7 @@ return {
         "lua_ls",
         "rust_analyzer",
         "solargraph",
-        "fennel_language_server"
+        "fennel_language_server",
       },
     },
   },
@@ -199,7 +199,10 @@ return {
     lazy = false,
     opts = function()
       local c = require "plugins.configs.telescope"
+      local actions = require "telescope.actions"
       local project_actions = require "telescope._extensions.project.actions"
+      local fb_actions = require "telescope._extensions.file_browser.actions"
+
       c.defaults.mappings = {
         i = {
           ["<esc>"] = require("telescope.actions").close,
@@ -213,12 +216,20 @@ return {
       }
       c.defaults.file_ignore_patterns = { "node_modules", "resources/public/js/", ".git/", ".shadow-cljs/" }
       c.extensions = {
+        file_browser = {
+          mappings = {
+            i = {
+              ["<Tab>"] = actions.select_default,
+              ["<C-CR>"] = fb_actions.create_from_prompt,
+            },
+          },
+        },
         project = {
-          base_dirs = { "~/Development/" },
-          base_dirs = { "~/.config/nvim/lua/" },
+          base_dirs = { "~/Development/", "~/.config/nvim/lua/" },
           on_project_selected = function(prompt_bufnr)
             -- Do anything you want in here. For example:
             project_actions.change_working_directory(prompt_bufnr, false)
+            -- project_actions.find_project_files(prompt_bufnr, false)
           end,
         },
         fzf = {
