@@ -41,7 +41,10 @@ M.utils = {
   n = {
     ["<Esc>"] = {
       function()
-        vim.cmd "noh"
+        if string.len(vim.api.nvim_command_output("echo @/")) > 0 then
+          vim.cmd 'let @/ = ""'
+          return
+        end
         local terminals = require("toggleterm.terminal").get_all()
         for _, term in ipairs(terminals) do
           require("toggleterm.ui").close(term)
@@ -77,6 +80,7 @@ M.conjure = {
 
 M.lsp = {
   n = {
+    ["gd"] = { "<cmd> Telescope lsp_definitions <CR>", "lsp definition" },
     ["<leader>cd"] = { "<cmd> Telescope lsp_definitions <CR>", "lsp definition" },
     ["<leader>cr"] = { "<cmd> Telescope lsp_references <CR>", "lsp references" },
     ["<leader>cs"] = { "<cmd> Telescope lsp_document_symbols <CR>", "lsp document symbols" },

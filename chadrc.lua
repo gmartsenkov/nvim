@@ -5,8 +5,8 @@ local M = {}
 local highlights = require "custom.highlights"
 
 M.ui = {
-  theme = "gruvbox",
-  theme_toggle = { "gruvbox_light", "gruvbox" },
+  theme = "gruvchad",
+  theme_toggle = { "gruvchad_light", "gruvchad" },
   tabufline = {
     enabled = false,
   },

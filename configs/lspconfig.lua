@@ -2,7 +2,7 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-local servers = { "gopls", "solargraph", "tsserver", "clojure_lsp", "clangd" }
+local servers = { "gopls", "solargraph", "tsserver", "clojure_lsp", "clangd", "fennel_language_server" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -26,7 +26,7 @@ lspconfig["rust_analyzer"].setup {
         command = "clippy",
       },
     },
-  }
+  },
 }
 
 vim.diagnostic.config {

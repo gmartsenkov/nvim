@@ -30,6 +30,7 @@ return {
         "lua_ls",
         "rust_analyzer",
         "solargraph",
+        "fennel_language_server"
       },
     },
   },
