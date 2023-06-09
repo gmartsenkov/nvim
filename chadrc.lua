@@ -1,14 +1,31 @@
 ---@type ChadrcConfig
 local M = {}
 
--- Path to overriding theme and highlights files
-local highlights = require "custom.highlights"
-
 M.ui = {
   theme = "gruvchad",
   theme_toggle = { "gruvchad_light", "gruvchad" },
   transparency = false,
   lsp_semantic_tokens = false, -- needs nvim v0.9, just adds highlight groups for lsp semantic tokens
+  statusline = {
+    theme = 'vscode_colored',
+    overriden_modules = function()
+      return {
+        file_encoding = function ()
+          return ""
+        end,
+        cursor_position = function ()
+          return ""
+        end,
+        git = function()
+          if not vim.b.gitsigns_head or vim.b.gitsigns_git_status then
+            return ""
+          end
+
+          return "  " .. string.sub(vim.b.gitsigns_status_dict.head, 1, 20) .. "  "
+        end
+      }
+    end
+  },
   tabufline = {
     enabled = false,
   },
