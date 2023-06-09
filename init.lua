@@ -17,7 +17,7 @@ vim.g.snipmate_snippets_path = "/Users/gogo/.config/nvim/lua/custom/lua_snippets
 vim.o.clipboard = "unnamedplus"
 vim.o.inccommand = "nosplit"
 vim.o.pumheight = 10
-vim.o.scrolloff = 2
+vim.o.scrolloff = 10
 vim.o.updatetime = 250
 
 if vim.g.neovide then
