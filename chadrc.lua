@@ -1,6 +1,10 @@
 ---@type ChadrcConfig
 local M = {}
 
+function literalize(str)
+    return str:gsub("[%(%)%.%%%+%-%*%?%[%]%^%$]", function(c) return "%" .. c end)
+end
+
 M.ui = {
   theme = "gruvchad",
   theme_toggle = { "gruvchad_light", "gruvchad" },
@@ -22,6 +26,30 @@ M.ui = {
           end
 
           return "  " .. string.sub(vim.b.gitsigns_status_dict.head, 1, 20) .. "  "
+        end,
+        fileInfo = function()
+          local fn = vim.fn
+          local icon = " 󰈚 "
+          local filename = (fn.expand "%" == "" and "Empty ") or fn.expand "%"
+
+          if filename ~= "Empty " then
+            local devicons_present, devicons = pcall(require, "nvim-web-devicons")
+
+            if devicons_present then
+              local ft_icon = devicons.get_icon(filename)
+              icon = (ft_icon ~= nil and " " .. ft_icon) or ""
+            end
+
+            filename = " " .. filename .. " "
+          end
+
+          if require("root").find() ~= nil then
+            local root = literalize((require("root").find() .. "/"))
+            local relative_filename = filename:gsub(root, "")
+            return "%#StText# " .. icon .. relative_filename
+          end
+
+          return "%#StText# " .. icon .. filename
         end
       }
     end
