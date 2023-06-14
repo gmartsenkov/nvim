@@ -21,11 +21,14 @@ M.ui = {
           return ""
         end,
         git = function()
+          return ""
+        end,
+        gitchanges = function()
           if not vim.b.gitsigns_head or vim.b.gitsigns_git_status then
             return ""
           end
 
-          return "  " .. string.sub(vim.b.gitsigns_status_dict.head, 1, 20) .. "  "
+          return "%#StText#  " .. string.sub(vim.b.gitsigns_status_dict.head, 1, 20) .. "  "
         end,
         fileInfo = function()
           local fn = vim.fn

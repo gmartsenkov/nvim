@@ -1,4 +1,5 @@
 return {
+  {"ellisonleao/carbon-now.nvim", opts = { titlebar = "", open_cmd="open" }, cmd = "CarbonNow" },
   {
     "guns/vim-sexp",
     lazy = false,
