@@ -116,6 +116,20 @@ return {
         ["<C-k>"] = require("cmp").mapping.select_prev_item(),
         ["<Up>"] = require("cmp").mapping.select_prev_item(),
         ["<S-CR>"] = require("cmp").mapping.abort(),
+        ["<Tab>"] = require("cmp").mapping(function(callback)
+          if require("luasnip").expand_or_jumpable() then
+            vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
+          else
+            callback()
+          end
+        end),
+        ["<S-Tab>"] = require("cmp").mapping(function(callback)
+          if require("luasnip").expand_or_jumpable() then
+            vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
+          else
+            callback()
+          end
+        end),
       },
       sources = {
         { name = "luasnip", max_item_count = 5 },
