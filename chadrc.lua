@@ -2,7 +2,9 @@
 local M = {}
 
 function literalize(str)
-    return str:gsub("[%(%)%.%%%+%-%*%?%[%]%^%$]", function(c) return "%" .. c end)
+  return str:gsub("[%(%)%.%%%+%-%*%?%[%]%^%$]", function(c)
+    return "%" .. c
+  end)
 end
 
 M.ui = {
@@ -11,13 +13,13 @@ M.ui = {
   transparency = false,
   lsp_semantic_tokens = false, -- needs nvim v0.9, just adds highlight groups for lsp semantic tokens
   statusline = {
-    theme = 'vscode_colored',
+    theme = "vscode_colored",
     overriden_modules = function()
       return {
-        file_encoding = function ()
+        file_encoding = function()
           return ""
         end,
-        cursor_position = function ()
+        cursor_position = function()
           return ""
         end,
         git = function()
@@ -53,9 +55,9 @@ M.ui = {
           end
 
           return "%#StText# " .. icon .. filename
-        end
+        end,
       }
-    end
+    end,
   },
   tabufline = {
     enabled = false,
