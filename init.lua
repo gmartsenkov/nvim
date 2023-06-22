@@ -19,7 +19,9 @@ vim.o.inccommand = "nosplit"
 vim.o.pumheight = 10
 vim.o.scrolloff = 10
 vim.o.updatetime = 250
+vim.wo.number = true
 
+-- vim.api.nvim_exec([[ let @/ = ""]], false)
 if vim.g.neovide then
   vim.g.neovide_cursor_animation_length = 0
   vim.g.neovide_cursor_trail_size = 0

@@ -82,6 +82,7 @@ M.lsp = {
   n = {
     ["gd"] = { "<cmd> Telescope lsp_definitions <CR>", "lsp definition" },
     ["<leader>cd"] = { "<cmd> Telescope lsp_definitions <CR>", "lsp definition" },
+    ["<leader>cD"] = { "<cmd> Telescope diagnostics <CR>", "lsp diagnostics" },
     ["<leader>cr"] = { "<cmd> Telescope lsp_references <CR>", "lsp references" },
     ["<leader>cs"] = { "<cmd> Telescope lsp_document_symbols <CR>", "lsp document symbols" },
     ["<leader>cw"] = { "<cmd> Telescope lsp_workspace_symbols <CR>", "lsp workspace symbols" },
@@ -136,7 +137,8 @@ M.git = {
     ["<leader>gg"] = { "<cmd> Neogit <CR>", "neogit" },
     ["<leader>gb"] = { "<cmd> Telescope git_branches <CR>", "git branches" },
     ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "git commits" },
-    ["<leader>gB"] = { "<cmd> Telescope advanced_git_search search_log_content_file<CR>", "current file commits" },
+    ["<leader>gp"] = { "<cmd> Git pull <CR>", "git pull" },
+    ["<leader>gP"] = { "<cmd> Git push <CR>", "git push" },
   },
 }
 

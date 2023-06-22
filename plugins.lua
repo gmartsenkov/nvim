@@ -2,7 +2,6 @@ return {
   { "ellisonleao/carbon-now.nvim", opts = { titlebar = "", open_cmd = "open" }, cmd = "CarbonNow" },
   {
     "guns/vim-sexp",
-    lazy = false,
     ft = { "fennel", "clojure" },
     config = function()
       vim.g.sexp_enable_insert_mode_mappings = 0
@@ -17,9 +16,9 @@ return {
     dependencies = { "guns/vim-sexp", "tpope/vim-repeat", "tpope/vim-surround" },
   },
   { "Olical/conjure", ft = { "fennel", "clojure" } },
-  { "jaawerth/fennel.vim", lazy = false },
+  { "jaawerth/fennel.vim", ft = { "fennel" } },
   { "rktjmp/hotpot.nvim", lazy = false, config = true },
-  { "tpope/vim-fugitive", lazy = false },
+  { "tpope/vim-fugitive", cmd = { "Git", "Gedit", "GBrowse" } },
   {
     "williamboman/mason-lspconfig",
     dependencies = { "williamboman/mason.nvim" },
@@ -53,7 +52,6 @@ return {
     version = "*",
     lazy = false,
     config = function()
-      -- require("mini.surround").setup()
       require("mini.splitjoin").setup()
     end,
   },
@@ -183,7 +181,7 @@ return {
   },
   {
     "vim-test/vim-test",
-    lazy = false,
+    cmd = { "TestFile", "TestSuite", "TestNearest", "TestLast", "TestVisit" },
     dependencies = { "gmartsenkov/gotospec.nvim" },
     config = function()
       vim.g["test#custom_strategies"] = {
