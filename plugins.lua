@@ -84,9 +84,7 @@ return {
   {
     "phaazon/hop.nvim",
     cmd = { "HopWord", "HopChar1", "HopChar2", "HopLine", "HopAnywhere" },
-    config = function()
-      require("hop").setup {}
-    end,
+    config = true,
   },
   {
     "gmartsenkov/gotospec.nvim",
@@ -161,6 +159,9 @@ return {
         "ruby",
         "rust",
         "elixir",
+        "c",
+        "javascript",
+        "markdown"
       },
       endwise = {
         enable = true,
@@ -174,10 +175,8 @@ return {
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    cmd = "TroubleToggle",
-    config = function()
-      require("trouble").setup {}
-    end,
+    lazy = false,
+    opts = {},
   },
   {
     "vim-test/vim-test",
