@@ -30,10 +30,9 @@ local sources = {
   b.diagnostics.credo,
 
   --clojure
-  b.diagnostics.clj_kondo
+  b.diagnostics.clj_kondo,
 }
 
 null_ls.setup {
-  debug = true,
   sources = sources,
 }
