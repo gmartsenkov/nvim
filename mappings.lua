@@ -4,10 +4,8 @@ M.telescope = {
   n = {
     ["<leader><leader>"] = {
       function()
-        require("telescope.builtin").find_files {
-          hidden = true,
-          cwd = require("root").find() or vim.fn.expand "%:p:h",
-        }
+        local cwd = require("root").find() or vim.fn.expand "%:p:h"
+        vim.cmd("Telescope find_files hidden=true cwd=" .. cwd)
       end,
       "find files",
     },
@@ -30,6 +28,7 @@ M.tests = {
       "switch between test/implementation",
     },
     ["<leader>tv"] = { "<cmd> TestFile <CR>", "test file" },
+    ["<leader>tf"] = { "<cmd> TestLast --only-failures<CR>", "test failures" },
     ["<leader>ta"] = { "<cmd> TestSuite <CR>", "test project" },
     ["<leader>ts"] = { "<cmd> TestNearest <CR>", "test nearest" },
     ["<leader>tl"] = { "<cmd> TestLast <CR>", "test last" },
