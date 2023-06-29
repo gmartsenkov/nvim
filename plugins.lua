@@ -1,5 +1,12 @@
 return {
   {
+    "voldikss/vim-translator",
+    lazy = false,
+    config = function()
+      vim.g.translator_target_lang = "en"
+    end,
+  },
+  {
     "m4xshen/hardtime.nvim",
     opts = {},
     lazy = false,
@@ -76,10 +83,11 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
-    opts = require("custom.configs.nvim-cmp"),
+    opts = require "custom.configs.nvim-cmp",
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
+    lazy = false,
     config = function()
       require "custom.configs.null-ls"
     end,
@@ -151,6 +159,6 @@ return {
       { "nvim-telescope/telescope-file-browser.nvim", lazy = false },
     },
     cmd = "Telescope",
-    opts = require("custom.configs.telescope")
-  }
+    opts = require "custom.configs.telescope",
+  },
 }

@@ -23,6 +23,7 @@ local sources = {
 
   --ruby
   b.formatting.rubocop,
+  b.diagnostics.rubocop,
 
   --elixir
   b.formatting.mix,
