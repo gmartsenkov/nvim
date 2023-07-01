@@ -29,6 +29,7 @@ M.tests = {
     },
     ["<leader>tv"] = { "<cmd> TestFile <CR>", "test file" },
     ["<leader>tf"] = { "<cmd> TestLast --only-failures<CR>", "test failures" },
+    ["<leader>tF"] = { "<cmd> TestSuite --only-failures<CR>", "test all failures" },
     ["<leader>ta"] = { "<cmd> TestSuite <CR>", "test project" },
     ["<leader>ts"] = { "<cmd> TestNearest <CR>", "test nearest" },
     ["<leader>tl"] = { "<cmd> TestLast <CR>", "test last" },

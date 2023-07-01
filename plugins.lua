@@ -6,11 +6,6 @@ return {
       vim.g.translator_target_lang = "en"
     end,
   },
-  {
-    "m4xshen/hardtime.nvim",
-    opts = {},
-    lazy = false,
-  },
   { "tpope/vim-surround", lazy = false },
   { "tpope/vim-repeat", lazy = false },
   {
@@ -101,7 +96,7 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = { { "RRethy/nvim-treesitter-endwise", lazy = false } },
+    dependencies = { "RRethy/nvim-treesitter-endwise" },
     opts = {
       ensure_installed = {
         "lua",
@@ -125,7 +120,7 @@ return {
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    lazy = false,
+    cmd = { "TroubleToggle" },
     opts = {},
   },
   {
@@ -153,10 +148,10 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-      { "nvim-telescope/telescope-project.nvim", lazy = false },
-      { "nvim-telescope/telescope-fzf-native.nvim", lazy = false, build = "make" },
-      { "nvim-telescope/telescope-smart-history.nvim", lazy = false },
-      { "nvim-telescope/telescope-file-browser.nvim", lazy = false },
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      "nvim-telescope/telescope-project.nvim",
+      "nvim-telescope/telescope-smart-history.nvim",
+      "nvim-telescope/telescope-file-browser.nvim",
     },
     cmd = "Telescope",
     opts = require "custom.configs.telescope",
