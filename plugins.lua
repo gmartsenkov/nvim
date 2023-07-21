@@ -6,6 +6,12 @@ return {
       vim.g.translator_target_lang = "en"
     end,
   },
+  {
+    "nvim-pack/nvim-spectre",
+    dependencies = { "nvim-pack/nvim-spectre" },
+    config = true,
+    cmd = "Specter",
+  },
   { "tpope/vim-surround", lazy = false },
   { "tpope/vim-repeat", lazy = false },
   {
@@ -72,9 +78,10 @@ return {
     config = true,
   },
   {
-    "TimUntersberger/neogit",
+    "NeogitOrg/neogit",
     dependencies = { "nvim-lua/plenary.nvim" },
     cmd = "Neogit",
+    config = true,
   },
   {
     "hrsh7th/nvim-cmp",
@@ -120,7 +127,7 @@ return {
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    cmd = { "TroubleToggle" },
+    lazy = false,
     opts = {},
   },
   {

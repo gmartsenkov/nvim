@@ -115,6 +115,8 @@ M.nav = {
   },
   n = {
     ["<C-s>"] = { "<cmd> HopChar2 <CR>", "hop char 2" },
+    ["gw"] = { "<cmd> HopChar2 <CR>", "hop char 2" },
+    ["gl"] = { "<cmd> HopLine <CR>", "hop line" },
     ["<leader>wv"] = { "<cmd> vsplit <CR>", "split vertical" },
     ["<leader>wh"] = { "<cmd> split <CR>", "split horizontal" },
     ["<leader>wd"] = { "<cmd> close <CR>", "close window" },
