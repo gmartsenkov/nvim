@@ -7,6 +7,14 @@ local literalize = function(str)
   end)
 end
 
+local short_git = function(str)
+  if not vim.b.gitsigns_head or vim.b.gitsigns_git_status then
+    return ""
+  end
+
+  return "%#StText#  " .. string.sub(vim.b.gitsigns_status_dict.head, 1, 30) .. " "
+end
+
 local relative_filename = function()
   local fn = vim.fn
   local icon = " 󰈚 "
@@ -51,10 +59,10 @@ M.ui = {
       table.remove(modules, 7)
       table.remove(modules, 7)
       table.remove(modules, 7)
-      local git = table.remove(modules, 2)
+      table.remove(modules, 2)
       table.insert(modules, 2, relative_filename())
       table.insert(modules, 4, "%=")
-      table.insert(modules, 8, ("%#StText#" .. git))
+      table.insert(modules, 8, short_git())
     end,
   },
   tabufline = {
