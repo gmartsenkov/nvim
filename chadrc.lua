@@ -1,62 +1,60 @@
 ---@type ChadrcConfig
 local M = {}
 
-function literalize(str)
+local literalize = function(str)
   return str:gsub("[%(%)%.%%%+%-%*%?%[%]%^%$]", function(c)
     return "%" .. c
   end)
 end
 
+local relative_filename = function()
+  local fn = vim.fn
+  local icon = " 󰈚 "
+  local filename = (fn.expand "%" == "" and "Empty ") or fn.expand "%"
+
+  if filename ~= "Empty " then
+    local devicons_present, devicons = pcall(require, "nvim-web-devicons")
+
+    if devicons_present then
+      local ft_icon = devicons.get_icon(filename)
+      icon = (ft_icon ~= nil and " " .. ft_icon) or ""
+    end
+
+    filename = " " .. filename .. " "
+  end
+
+  if require("root").find() ~= nil then
+    local root = literalize((require("root").find() .. "/"))
+    local relative_filename = filename:gsub(root, "")
+    return "%#StText# " .. icon .. relative_filename
+  end
+
+  return "%#StText# " .. icon .. filename
+end
+
 M.ui = {
-  theme = "gruvchad",
-  theme_toggle = { "gruvchad_light", "gruvchad" },
+  theme = "everforest",
+  theme_toggle = { "everforest_light", "everforest" },
   transparency = false,
+  changed_themes = {},
+  nvdash = {},
+  hl_add = {},
+  cheatsheet = {},
+  extended_integrations = {},
   lsp_semantic_tokens = false, -- needs nvim v0.9, just adds highlight groups for lsp semantic tokens
   statusline = {
     theme = "vscode_colored",
-    overriden_modules = function()
-      return {
-        file_encoding = function()
-          return ""
-        end,
-        cursor_position = function()
-          return ""
-        end,
-        git = function()
-          return ""
-        end,
-        gitchanges = function()
-          if not vim.b.gitsigns_head or vim.b.gitsigns_git_status then
-            return ""
-          end
-
-          return "%#StText#  " .. string.sub(vim.b.gitsigns_status_dict.head, 1, 20) .. "  "
-        end,
-        fileInfo = function()
-          local fn = vim.fn
-          local icon = " 󰈚 "
-          local filename = (fn.expand "%" == "" and "Empty ") or fn.expand "%"
-
-          if filename ~= "Empty " then
-            local devicons_present, devicons = pcall(require, "nvim-web-devicons")
-
-            if devicons_present then
-              local ft_icon = devicons.get_icon(filename)
-              icon = (ft_icon ~= nil and " " .. ft_icon) or ""
-            end
-
-            filename = " " .. filename .. " "
-          end
-
-          if require("root").find() ~= nil then
-            local root = literalize((require("root").find() .. "/"))
-            local relative_filename = filename:gsub(root, "")
-            return "%#StText# " .. icon .. relative_filename
-          end
-
-          return "%#StText# " .. icon .. filename
-        end,
-      }
+    separator_style = "default",
+    lspprogress_len = 100,
+    overriden_modules = function(modules)
+      table.remove(modules, 2)
+      table.remove(modules, 7)
+      table.remove(modules, 7)
+      table.remove(modules, 7)
+      local git = table.remove(modules, 2)
+      table.insert(modules, 2, relative_filename())
+      table.insert(modules, 4, "%=")
+      table.insert(modules, 8, ("%#StText#" .. git))
     end,
   },
   tabufline = {
@@ -77,29 +75,11 @@ M.ui = {
     },
   },
   telescope = { style = "borderless" }, -- borderless / bordered
-  nvdash = {
-    load_on_startup = true,
-
-    header = {
-      "           ▄ ▄                   ",
-      "       ▄   ▄▄▄     ▄ ▄▄▄ ▄ ▄     ",
-      "       █ ▄ █▄█ ▄▄▄ █ █▄█ █ █     ",
-      "    ▄▄ █▄█▄▄▄█ █▄█▄█▄▄█▄▄█ █     ",
-      "  ▄ █▄▄█ ▄ ▄▄ ▄█ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄  ",
-      "  █▄▄▄▄ ▄▄▄ █ ▄ ▄▄▄ ▄ ▄▄▄ ▄ ▄ █ ▄",
-      "▄ █ █▄█ █▄█ █ █ █▄█ █ █▄█ ▄▄▄ █ █",
-      "█▄█ ▄ █▄▄█▄▄█ █ ▄▄█ █ ▄ █ █▄█▄█ █",
-      "    █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█    ",
-    },
-
-    buttons = {
-      { "  Find Project", "Spc p p", "Telescope project" },
-      { "󰈚  Recent Files", "Spc f o", "Telescope oldfiles" },
-      { "󰈭  Find Word", "Spc f w", "Telescope live_grep" },
-      { "  Bookmarks", "Spc m a", "Telescope marks" },
-      { "  Themes", "Spc t h", "Telescope themes" },
-      { "  Mappings", "Spc c h", "NvCheatsheet" },
-    },
+  hl_override = {
+    NeogitDiffDeleteHighlight = { fg = "white", bg = "red" },
+    NeogitDiffDeleteRegion = { fg = "white", bg = "white" },
+    NeogitDiffDeleteGroup = { fg = "white", bg = "white" },
+    DiffDeleteHighlight = { fg = "white", bg = "white" },
   },
 }
 

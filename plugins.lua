@@ -10,7 +10,7 @@ return {
     "nvim-pack/nvim-spectre",
     dependencies = { "nvim-pack/nvim-spectre" },
     config = true,
-    cmd = "Specter",
+    cmd = "Spectre",
   },
   { "tpope/vim-surround", lazy = false },
   { "tpope/vim-repeat", lazy = false },
@@ -106,6 +106,11 @@ return {
     dependencies = { "RRethy/nvim-treesitter-endwise" },
     opts = {
       ensure_installed = {
+        "eex",
+        "surface",
+        "heex",
+        "html",
+        "erlang",
         "lua",
         "vim",
         "ruby",

@@ -41,7 +41,7 @@ M.utils = {
   n = {
     ["<Esc>"] = {
       function()
-        if string.len(vim.api.nvim_command_output("echo @/")) > 0 then
+        if string.len(vim.api.nvim_command_output "echo @/") > 0 then
           vim.cmd 'let @/ = ""'
           return
         end

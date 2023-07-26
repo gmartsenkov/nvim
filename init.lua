@@ -25,7 +25,11 @@ vim.wo.number = true
 if vim.g.neovide then
   vim.g.neovide_cursor_animation_length = 0
   vim.g.neovide_cursor_trail_size = 0
-  vim.opt.guifont = { "JetBrainsMono Nerd Font", "h9" }
+  vim.g.neovide_cursor_antialiasing = true
+  vim.g.neovide_scroll_animation_length = 0.3
+  vim.g.neovide_refresh_rate = 100
+  vim.g.neovide_refresh_rate_idle = 5
+  vim.opt.guifont = "JetBrainsMono Nerd Font:h14:#e-subpixelantialias:#h-full"
 end
 
 autocmd("BufEnter", {
