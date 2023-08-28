@@ -41,12 +41,11 @@ local relative_filename = function()
 end
 
 M.ui = {
-  theme = "everforest",
-  theme_toggle = { "everforest_light", "everforest" },
+  theme = "ayu_dark",
+  theme_toggle = { "ayu_dark_light", "ayu_dark" },
   transparency = false,
   changed_themes = {},
   nvdash = {},
-  hl_add = {},
   cheatsheet = {},
   extended_integrations = {},
   lsp_semantic_tokens = false, -- needs nvim v0.9, just adds highlight groups for lsp semantic tokens
@@ -83,11 +82,10 @@ M.ui = {
     },
   },
   telescope = { style = "borderless" }, -- borderless / bordered
-  hl_override = {
-    NeogitDiffDeleteHighlight = { fg = "white", bg = "red" },
-    NeogitDiffDeleteRegion = { fg = "white", bg = "white" },
-    NeogitDiffDeleteGroup = { fg = "white", bg = "white" },
-    DiffDeleteHighlight = { fg = "white", bg = "white" },
+  hl_add = {
+    NeogitDiffDeleteHighlight = { fg = "#fa6b6b", bg = "#4f343a" },
+    NeogitDiffDelete = { fg = "#fa6b6b", bg = "#4f343a" },
+    NeogitDiffDeleteRegion = { fg = "#fa6b6b", bg = "#4f343a" },
   },
 }
 

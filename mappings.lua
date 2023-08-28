@@ -131,6 +131,18 @@ M.nav = {
     },
     ["<C-[>"] = { "<cmd> bprevious <CR>", "previous buffer" },
     ["<C-]>"] = { "<cmd> bnext <CR>", "next buffer" },
+    ["]d"] = {
+      function ()
+        vim.diagnostic.goto_next()
+      end,
+      "next diagnostic"
+    },
+    ["[d"] = {
+      function ()
+        vim.diagnostic.goto_prev()
+      end,
+      "next diagnostic"
+    },
   },
 }
 

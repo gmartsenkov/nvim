@@ -11,8 +11,8 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-lspconfig["elixirls"].setup {
-  cmd = { "/Users/gogo/.local/share/nvim/mason/bin/elixir-ls" },
+lspconfig["nextls"].setup {
+  cmd = { "nextls" },
   on_attach = on_attach,
   capabilities = capabilities,
 }
