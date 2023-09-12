@@ -41,8 +41,8 @@ local relative_filename = function()
 end
 
 M.ui = {
-  theme = "ayu_dark",
-  theme_toggle = { "ayu_dark_light", "ayu_dark" },
+  theme = "onedark",
+  theme_toggle = { "onedark_light", "onedark" },
   transparency = false,
   changed_themes = {},
   nvdash = {},

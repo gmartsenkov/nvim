@@ -1,5 +1,14 @@
 return {
   {
+    "NvChad/nvim-colorizer.lua",
+    lazy = false,
+    opts = {
+      user_default_options = {
+        tailwind = true
+      }
+    }
+  },
+  {
     "elixir-tools/elixir-tools.nvim",
     version = "*",
     event = { "BufReadPre", "BufNewFile" },
@@ -8,10 +17,10 @@ return {
       local elixirls = require("elixir.elixirls")
 
       elixir.setup {
-        nextls = {enable = true},
-        credo = {},
+        nextls = {enable = false },
+        credo = {enable = false },
         elixirls = {
-          enable = true,
+          enable = false,
           settings = elixirls.settings {
             dialyzerEnabled = false,
             enableTestLenses = false,
