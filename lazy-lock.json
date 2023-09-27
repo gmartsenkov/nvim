@@ -1,0 +1,7 @@
+{
+  "hotpot.nvim": { "branch": "master", "commit": "1dc11eb47ca15828df8ed3c7a014eeca9c564e55" },
+  "nvim-treesitter": { "branch": "master", "commit": "d6c9c85e14e15bc59478a0d5d810e88dad0ac53f" },
+  "nvim-treesitter-endwise": { "branch": "master", "commit": "4c344ffc8d54d7e1ba2cefaaa2c10ea93aa1cc2d" },
+  "oxocarbon.nvim": { "branch": "main", "commit": "b47c0ecab3a4270815afb3b05e03423b04cca8f2" },
+  "root.nvim": { "branch": "master", "commit": "8fdf166402731eac292d8914b6670ef3870a6bb2" }
+}
