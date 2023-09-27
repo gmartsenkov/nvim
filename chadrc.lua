@@ -18,7 +18,10 @@ end
 local relative_filename = function()
   local fn = vim.fn
   local icon = " 󰈚 "
-  local filename = (fn.expand "%" == "" and "Empty ") or fn.expand "%"
+  local buf = "#" ..  vim.api.nvim_win_get_buf(vim.g.statusline_winid)
+
+  local org_filename = (fn.expand(buf) == "" and "Empty") or fn.expand(buf .. ":p")
+  local filename = (fn.expand(buf) == "" and "Empty") or fn.expand(buf .. ":p")
 
   if filename ~= "Empty " then
     local devicons_present, devicons = pcall(require, "nvim-web-devicons")
@@ -31,8 +34,8 @@ local relative_filename = function()
     filename = " " .. filename .. " "
   end
 
-  if require("root").find() ~= nil then
-    local root = literalize((require("root").find() .. "/"))
+  if require("root").find(org_filename) ~= nil then
+    local root = literalize((require("root").find(org_filename) .. "/"))
     local relative_filename = filename:gsub(root, "")
     return "%#StText# " .. icon .. relative_filename
   end
@@ -41,8 +44,8 @@ local relative_filename = function()
 end
 
 M.ui = {
-  theme = "onedark",
-  theme_toggle = { "onedark_light", "onedark" },
+  theme = "gruvbox",
+  theme_toggle = { "gruvbox_light", "gruvbox" },
   transparency = false,
   changed_themes = {},
   nvdash = {},
@@ -62,6 +65,8 @@ M.ui = {
       table.insert(modules, 2, relative_filename())
       table.insert(modules, 4, "%=")
       table.insert(modules, 8, short_git())
+      table.remove(modules, 3)
+      table.remove(modules, 8)
     end,
   },
   tabufline = {

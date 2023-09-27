@@ -17,7 +17,7 @@ return {
       local elixirls = require("elixir.elixirls")
 
       elixir.setup {
-        nextls = {enable = false },
+        nextls = {enable = true },
         credo = {enable = false },
         elixirls = {
           enable = false,
@@ -113,6 +113,10 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     cmd = "Neogit",
     config = true,
+    opts = {
+      kind = "tab",
+      remember_settings = false,
+    }
   },
   {
     "hrsh7th/nvim-cmp",
