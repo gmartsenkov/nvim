@@ -1,43 +1,9 @@
-local on_attach = function(client, bufnr)
-  -- client.server_capabilities.documentFormattingProvider = false
-  -- client.server_capabilities.documentRangeFormattingProvider = false
-
-  -- utils.load_mappings("lspconfig", { buffer = bufnr })
-
-  -- if client.server_capabilities.signatureHelpProvider then
-  --   require("nvchad.signature").setup(client)
-  -- end
-
-  -- if not utils.load_config().ui.lsp_semantic_tokens and client.supports_method "textDocument/semanticTokens" then
-  --   client.server_capabilities.semanticTokensProvider = nil
-  -- end
-end
-
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
---
--- capabilities.textDocument.completion.completionItem = {
---   documentationFormat = { "markdown", "plaintext" },
---   snippetSupport = true,
---   preselectSupport = true,
---   insertReplaceSupport = true,
---   labelDetailsSupport = true,
---   deprecatedSupport = true,
---   commitCharactersSupport = true,
---   tagSupport = { valueSet = { 1 } },
---   resolveSupport = {
---     properties = {
---       "documentation",
---       "detail",
---       "additionalTextEdits",
---     },
---   },
--- }
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local lspconfig = require "lspconfig"
-local configs = require 'lspconfig.configs'
 local servers = { "gopls", "solargraph", "tsserver", "clojure_lsp", "clangd", "fennel_language_server" }
 
+-- local configs = require 'lspconfig.configs'
 -- configs.nextls = {
 --   default_config = {
 --     cmd = { '/opt/homebrew/bin/nextls',  '--stdio' },
@@ -48,7 +14,6 @@ local servers = { "gopls", "solargraph", "tsserver", "clojure_lsp", "clangd", "f
 --
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
-    on_attach = on_attach,
     capabilities = capabilities,
   }
 end
@@ -94,12 +59,10 @@ lspconfig["tailwindcss"].setup {
 			validate = true,
 		},
   },
-  on_attach = on_attach,
   capabilities = capabilities,
 }
 
 lspconfig["rust_analyzer"].setup {
-  on_attach = on_attach,
   capabilities = capabilities,
   settings = {
     ["rust-analyzer"] = {

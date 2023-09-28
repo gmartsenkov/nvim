@@ -36,12 +36,12 @@ vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappin
 
 require("lazy").setup({
   "rktjmp/hotpot.nvim",
-  {
-    'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    lazy = false,
-    config = true
-  },
+  -- {
+  --   'nvim-lualine/lualine.nvim',
+  --   dependencies = { 'nvim-tree/nvim-web-devicons' },
+  --   lazy = false,
+  --   config = true
+  -- },
   {
     "elixir-tools/elixir-tools.nvim",
     version = "*",
@@ -129,6 +129,9 @@ require("lazy").setup({
         "L3MON4D3/LuaSnip",
         dependencies = "rafamadriz/friendly-snippets",
         opts = { history = true, updateevents = "TextChanged,TextChangedI" },
+        config = function()
+          require("luasnip.loaders.from_snipmate").lazy_load { paths = vim.fn.stdpath("config") .. "/snippets" }
+        end
       },
       {
         "windwp/nvim-autopairs",
@@ -316,7 +319,7 @@ require("lazy").setup({
       },
       indent = {
         enable = true,
-        -- disable = { "ruby" },
+        disable = { "ruby" },
       },
     },
   },
