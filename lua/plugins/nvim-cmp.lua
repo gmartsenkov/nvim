@@ -13,16 +13,41 @@ end
 
 return function ()
   local cmp = require("cmp")
+  local lspkind = require('lspkind')
+
+  vim.api.nvim_set_hl(0, "CmpItemKindModule", { ctermbg=0, bg=LightGrey })
+  vim.api.nvim_set_hl(0, "CmpItemKindClass", { ctermbg=0, bg=LightGrey })
+  vim.api.nvim_set_hl(0, "CmpItemKindFunction", { ctermbg=0, bg=LightGrey })
+  vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { ctermbg=0, bg=LightGrey })
+  vim.api.nvim_set_hl(0, "CmpItemKindVariable", { ctermbg=0, bg=LightGrey })
+  vim.api.nvim_set_hl(0, "CmpItemKindText", { ctermbg=0, bg=LightGrey })
+  vim.api.nvim_set_hl(0, "CmpItemKindStruct", { ctermbg=0, bg=LightGrey })
+  vim.api.nvim_set_hl(0, "CmpItemKindInterface", { ctermbg=0, bg=LightGrey })
+  vim.api.nvim_set_hl(0, "CmpItemKindMethod", { ctermbg=0, bg=LightGrey })
+  vim.api.nvim_set_hl(0, "CmpItemKindConstant", { ctermbg=0, bg=LightGrey })
+  vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { ctermbg=0, bg=LightGrey })
 
   return {
     completion = {
-      completeopt = 'menu,menuone,noinsert'
+      completeopt = 'menu,menuone,noinsert',
+    },
+    formatting = {
+      format = lspkind.cmp_format({
+        mode = 'symbol_text', -- show only symbol annotations
+        maxwidth = 30, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+        ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+
+        -- The function below will be called before any actual modifications from lspkind
+        -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+        before = function (entry, vim_item)
+          vim_item.abr = string.sub(vim_item.abr or "", 1, 10)
+          vim_item.menu = string.sub(vim_item.menu or "", 1, 10)
+
+          return vim_item
+        end
+      })
     },
     window = {
-      completion = {
-        scrollbar = false,
-        border = border "CmpDocBorder"
-      },
       documentation = {
         border = border "CmpDocBorder",
         winhighlight = "Normal:CmpDoc",
@@ -66,12 +91,12 @@ return function ()
       },
     },
     sources = {
-      { name = "luasnip", max_item_count = 5 },
-      { name = "nvim_lsp", max_item_count = 5 },
-      { name = "crates", max_items_count = 10 },
-      { name = "nvim_lua", max_item_count = 5 },
-      { name = "path", max_item_count = 5 },
-      { name = "buffer", max_item_count = 5 },
+      { name = "luasnip" },
+      { name = "nvim_lsp" },
+      { name = "crates" },
+      { name = "nvim_lua" },
+      { name = "path" },
+      { name = "buffer" },
     },
   }
 end

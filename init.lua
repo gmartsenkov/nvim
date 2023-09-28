@@ -36,6 +36,7 @@ vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappin
 
 require("lazy").setup({
   "rktjmp/hotpot.nvim",
+  {"nanozuki/tabby.nvim", lazy=false},
   -- {
   --   'nvim-lualine/lualine.nvim',
   --   dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -124,6 +125,7 @@ require("lazy").setup({
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
+      {"onsails/lspkind.nvim", lazy = false},
       {
         -- snippet plugin
         "L3MON4D3/LuaSnip",
