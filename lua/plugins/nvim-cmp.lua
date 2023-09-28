@@ -20,8 +20,8 @@ return function ()
     },
     window = {
       completion = {
-        side_padding = 1,
         scrollbar = false,
+        border = border "CmpDocBorder"
       },
       documentation = {
         border = border "CmpDocBorder",

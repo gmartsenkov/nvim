@@ -13,7 +13,7 @@ M.telescope = {
       "find files",
     },
     ["<C-x>"] = { "<cmd> Telescope commands <CR>", "commands" },
-    ["<leader>bb"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
+    ["<leader>bb"] = { "<cmd> Telescope buffers theme=ivy previewer=false <CR>", "find buffers" },
     ["<leader>bd"] = { "<cmd> Bdelete <CR>", "delete buffer" },
     ["<leader>bn"] = { "<cmd> enew <CR>", "new buffer" },
     ["<leader>pp"] = { "<cmd> Telescope project <CR>", "switch project" },

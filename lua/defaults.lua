@@ -13,11 +13,18 @@ vim.g.snipmate_snippets_path = "/Users/gogo/.config2/nvim/lua_snippets"
 vim.o.clipboard = "unnamedplus"
 vim.o.inccommand = "nosplit"
 vim.o.laststatus = 2
-vim.o.pumheight = 10
+vim.o.pumheight = 20
 vim.o.scrolloff = 10
 vim.o.updatetime = 250
 vim.wo.number = true
 vim.opt.signcolumn = "yes"
+
+vim.diagnostic.config {
+  virtual_text = false,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+}
 
 -- vim.api.nvim_exec([[ let @/ = ""]], false)
 if vim.g.neovide then
