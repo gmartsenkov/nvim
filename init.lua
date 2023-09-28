@@ -37,6 +37,12 @@ vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappin
 require("lazy").setup({
   "rktjmp/hotpot.nvim",
   {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    lazy = false,
+    config = true
+  },
+  {
     "elixir-tools/elixir-tools.nvim",
     version = "*",
     event = { "BufReadPre", "BufNewFile" },
@@ -138,14 +144,11 @@ require("lazy").setup({
           require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
         end,
       },
-
-      {
-        "saadparwaiz1/cmp_luasnip",
-        "hrsh7th/cmp-nvim-lua",
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-      },
+      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-nvim-lua",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
     },
     opts = require "plugins.nvim-cmp",
     config = function(_, opts)

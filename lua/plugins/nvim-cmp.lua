@@ -15,10 +15,12 @@ return function ()
   local cmp = require("cmp")
 
   return {
+    completion = {
+      completeopt = 'menu,menuone,noinsert'
+    },
     window = {
       completion = {
         side_padding = 1,
-        winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:PmenuSel",
         scrollbar = false,
       },
       documentation = {
