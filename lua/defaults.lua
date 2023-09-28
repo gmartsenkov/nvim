@@ -17,6 +17,7 @@ vim.o.pumheight = 10
 vim.o.scrolloff = 10
 vim.o.updatetime = 250
 vim.wo.number = true
+vim.opt.signcolumn = "yes"
 
 -- vim.api.nvim_exec([[ let @/ = ""]], false)
 if vim.g.neovide then
