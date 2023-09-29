@@ -37,7 +37,7 @@ return function ()
         -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
         before = function (entry, vim_item)
           vim_item.abr = string.sub(vim_item.abr or "", 1, 10)
-          vim_item.menu = string.sub(vim_item.menu or "", 1, 10)
+          vim_item.menu = string.sub(vim_item.menu or "", 1, 30)
 
           return vim_item
         end

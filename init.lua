@@ -321,6 +321,7 @@ require("lazy").setup({
   },
   {
     "nyoom-engineering/oxocarbon.nvim",
+    priority = 100,
     lazy = false
   },
   {
@@ -363,7 +364,7 @@ require("lazy").setup({
 }, {
     root = "/Users/gogo/.config2/lazy",
     defaults = { lazy = true },
-    install = { colorscheme = { "nvchad" } },
+    install = { colorscheme = { "oxocarbon" } },
 
     ui = {
       icons = {
@@ -412,4 +413,5 @@ require("lazy").setup({
 vim.opt.background = "dark" -- set this to dark or light
 vim.cmd.colorscheme "oxocarbon"
 
+vim.api.nvim_set_hl(0, "TermCursorNC", {})
 require("mappings")
