@@ -14,18 +14,14 @@ end
 return function ()
   local cmp = require("cmp")
   local lspkind = require('lspkind')
+  local item_highlights = {
+    "CmpItemKindModule", "CmpItemKindClass", "CmpItemKindFunction", "CmpItemKindSnippet", "CmpItemKindVariable", "CmpItemKindText",
+    "CmpItemKindStruct", "CmpItemKindInterface", "CmpItemKindMethod", "CmpItemKindConstant", "CmpItemKindConstant"
+  }
 
-  vim.api.nvim_set_hl(0, "CmpItemKindModule", { ctermbg=0, bg=LightGrey })
-  vim.api.nvim_set_hl(0, "CmpItemKindClass", { ctermbg=0, bg=LightGrey })
-  vim.api.nvim_set_hl(0, "CmpItemKindFunction", { ctermbg=0, bg=LightGrey })
-  vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { ctermbg=0, bg=LightGrey })
-  vim.api.nvim_set_hl(0, "CmpItemKindVariable", { ctermbg=0, bg=LightGrey })
-  vim.api.nvim_set_hl(0, "CmpItemKindText", { ctermbg=0, bg=LightGrey })
-  vim.api.nvim_set_hl(0, "CmpItemKindStruct", { ctermbg=0, bg=LightGrey })
-  vim.api.nvim_set_hl(0, "CmpItemKindInterface", { ctermbg=0, bg=LightGrey })
-  vim.api.nvim_set_hl(0, "CmpItemKindMethod", { ctermbg=0, bg=LightGrey })
-  vim.api.nvim_set_hl(0, "CmpItemKindConstant", { ctermbg=0, bg=LightGrey })
-  vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { ctermbg=0, bg=LightGrey })
+  for _, name in pairs(item_highlights) do
+    vim.api.nvim_set_hl(0, name, { ctermbg=0, bg=LightGrey })
+  end
 
   return {
     completion = {
