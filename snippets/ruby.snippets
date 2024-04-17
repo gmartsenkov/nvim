@@ -1,0 +1,36 @@
+snippet cont
+	context "${1:message}" do
+		${0}
+	end
+
+snippet it
+	it "${1:spec_name}" do
+		${0}
+	end
+
+snippet pry
+	require "pry"; binding.pry
+
+snippet let
+	let(:${1:var}) { ${0} }
+
+snippet fix
+	Fixtures::Factory.build_as :${1:record}
+
+snippet desc
+	describe "${1:spec_name}" do
+		${0}
+	end
+
+snippet bef
+	before do
+		${0}
+	end
+
+snippet sub
+  subject { ${0} }
+
+snippet def
+	def ${1:method}
+		${0}
+	end

@@ -1,0 +1,20 @@
+snippet cont
+	context "${1:message}" do
+		${0}
+	end
+
+snippet it
+	it "${1:spec_name}" do
+		${0}
+	end
+
+snippet def
+	def ${1:func} do
+		${0}
+	end
+
+snippet let
+  let :${1:name}, do: ${0}
+
+snippet exp
+  expect ${1:name} |> to()
