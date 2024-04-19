@@ -3,7 +3,7 @@ local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-local servers = { "html", "cssls", "solargraph" }
+local servers = { "html", "cssls", "solargraph", "rust_analyzer" }
 
 
 local on_attach = function(client, bufnr)

@@ -11,11 +11,12 @@ local literalize = function(str)
 end
 
 M.ui = {
-	theme = "onedark",
+	theme = "radium",
   tabufline = {
     enabled = false
   },
   statusline = {
+    theme = "minimal",
     modules = {
       cwd = function ()
         return ""
@@ -45,10 +46,10 @@ M.ui = {
         if require("root").find(org_filename) ~= nil then
           local root = literalize((require("root").find(org_filename) .. "/"))
           local relative_filename = filename:gsub(root, "")
-          return "%#StText# " .. icon .. relative_filename
+          return "%#St_file# " .. icon .. relative_filename .. "%#St_file_sep#"
         end
 
-        return "%#StText# " .. icon .. filename
+        return "%#St_file# " .. icon .. filename
       end,
       lsp = function ()
         return ""

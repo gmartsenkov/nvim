@@ -89,9 +89,34 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
+    dependencies = {
+      "onsails/lspkind.nvim",
+      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-nvim-lua",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+    },
     opts = function()
       local conf = require "nvchad.configs.cmp"
 
+      conf.formatting.format = require("lspkind").cmp_format {
+        mode = 'text',
+        with_text = true,
+        maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+        ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+
+        menu = {
+          codeium = '[AI]',
+          buffer = '[BUF]',
+          nvim_lsp = '[LSP]',
+          nvim_lsp_signature_help = '[LSP]',
+          nvim_lsp_document_symbol = '[LSP]',
+          nvim_lua = '[API]',
+          path = '[PATH]',
+          luasnip = '[SNIP]',
+        },
+      }
       conf.mapping = {
         ["<Down>"] = require("cmp").mapping.select_next_item(),
         ["<C-j>"] = require("cmp").mapping.select_next_item(),
