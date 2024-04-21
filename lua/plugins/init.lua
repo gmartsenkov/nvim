@@ -9,6 +9,7 @@ return {
       "gmartsenkov/root.nvim",
       lazy = false,
       config = true,
+      opts = { patterns = { ".git", "Gemfile", "Cargo.toml" } },
       build = "make",
     },
     {
@@ -23,6 +24,9 @@ return {
       cmd = { "TestFile", "TestSuite", "TestNearest", "TestLast", "TestVisit" },
       dependencies = { "gmartsenkov/gotospec.nvim" },
       config = function()
+        vim.g["test#project_root"] = function ()
+          return require("root").find()
+        end
         vim.g["test#custom_strategies"] = {
           term = function(cmd)
             local terminals = require("toggleterm.terminal").get_all()

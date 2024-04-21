@@ -15,6 +15,11 @@ M.ui = {
   tabufline = {
     enabled = false
   },
+  hl_add = {
+    NeogitDiffDeleteHighlight = { fg = "#fa6b6b", bg = "#4f343a" },
+    NeogitDiffDelete = { fg = "#fa6b6b", bg = "#4f343a" },
+    NeogitDiffDeleteRegion = { fg = "#fa6b6b", bg = "#4f343a" },
+  },
   statusline = {
     theme = "minimal",
     modules = {
