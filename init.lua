@@ -103,7 +103,7 @@ require("lazy").setup({
     dependencies = { "gmartsenkov/gotospec.nvim" },
     config = function()
       vim.g["test#project_root"] = function ()
-	return require("root").find()
+        return require("root").find()
       end
       vim.g["test#custom_strategies"] = {
         term = function(cmd)
@@ -276,6 +276,7 @@ require("lazy").setup({
     "gmartsenkov/root.nvim",
     lazy = false,
     config = true,
+    opts = { patterns = { ".git", "Gemfile", "Cargo.toml" } },
     build = "make",
   },
   {
