@@ -2,6 +2,8 @@ return function()
   local actions = require "telescope.actions"
   local project_actions = require "telescope._extensions.project.actions"
   local fb_actions = require "telescope._extensions.file_browser.actions"
+  local layout_strategies = require("telescope.pickers.layout_strategies")
+  local p_window = require "telescope.pickers.window"
 
   return {
     defaults = {
@@ -53,6 +55,6 @@ return function()
         git_diff_flags = {},
       },
     },
-    extensions_list = { "themes", "terms", "file_browser", "smart_history", "fzf", "project" }
+    extensions_list = { "themes", "terms", "file_browser", "smart_history", "fzf", "project", "frecency" }
   }
 end

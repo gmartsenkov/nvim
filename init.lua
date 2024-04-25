@@ -122,6 +122,9 @@ require("lazy").setup({
     cmd = { "TestFile", "TestSuite", "TestNearest", "TestLast", "TestVisit" },
     dependencies = { "gmartsenkov/gotospec.nvim" },
     config = function()
+      vim.g["test#project_root"] = function ()
+	return require("root").find()
+      end
       vim.g["test#custom_strategies"] = {
         term = function(cmd)
           local terminals = require("toggleterm.terminal").get_all()
@@ -146,6 +149,7 @@ require("lazy").setup({
       "nvim-telescope/telescope-project.nvim",
       "nvim-telescope/telescope-smart-history.nvim",
       "nvim-telescope/telescope-file-browser.nvim",
+      "nvim-telescope/telescope-frecency.nvim"
     },
     cmd = "Telescope",
     opts = require "plugins.telescope",
@@ -320,10 +324,16 @@ require("lazy").setup({
     build = "make",
   },
   {
-    "nyoom-engineering/oxocarbon.nvim",
-    priority = 100,
-    lazy = false
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    config = true
   },
+  -- {
+  --   "nyoom-engineering/oxocarbon.nvim",
+  --   priority = 100,
+  --   lazy = false
+  -- },
   {
     "nvim-treesitter/nvim-treesitter",
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
@@ -343,7 +353,7 @@ require("lazy").setup({
         "heex",
         "html",
         "erlang",
-        "lua",
+	"lua",
         "vim",
         "ruby",
         "rust",
@@ -410,8 +420,8 @@ require("lazy").setup({
     },
   })
 
-vim.opt.background = "dark" -- set this to dark or light
-vim.cmd.colorscheme "oxocarbon"
+-- vim.opt.background = "dark"
+vim.cmd.colorscheme "catppuccin"
 
 vim.api.nvim_set_hl(0, "TermCursorNC", {})
 require("mappings")
