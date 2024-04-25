@@ -40,3 +40,10 @@ snippet def
 	def ${1:method}
 	  ${0}
 	end
+
+snippet fix
+	Fixtures::Factory.build_as :${1:record}
+
+snippet let
+	let(:${1:var}) { ${0} }
+

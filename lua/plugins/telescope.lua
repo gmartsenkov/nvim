@@ -1,6 +1,5 @@
 return function()
   local actions = require "telescope.actions"
-  local project_actions = require "telescope._extensions.project.actions"
   local fb_actions = require "telescope._extensions.file_browser.actions"
   local layout_strategies = require("telescope.pickers.layout_strategies")
   local p_window = require "telescope.pickers.window"
@@ -29,21 +28,6 @@ return function()
           },
         },
       },
-      project = {
-        base_dirs = { "~/Development/", "~/.config/nvim/lua/" },
-        on_project_selected = function(prompt_bufnr)
-          -- Do anything you want in here. For example:
-          project_actions.change_working_directory(prompt_bufnr, false)
-          -- project_actions.find_project_files(prompt_bufnr, false)
-        end,
-      },
-      fzf = {
-        fuzzy = false, -- false will only do exact matching
-        override_generic_sorter = true, -- override the generic sorter
-        override_file_sorter = true, -- override the file sorter
-        case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-        -- the default case_mode is "smart_case"
-      },
       advanced_git_search = {
         -- fugitive or diffview
         diff_plugin = "fugitive",
@@ -55,6 +39,6 @@ return function()
         git_diff_flags = {},
       },
     },
-    extensions_list = { "themes", "terms", "file_browser", "smart_history", "fzf", "project", "frecency" }
+    extensions_list = { "themes", "terms", "file_browser", "frecency" }
   }
 end

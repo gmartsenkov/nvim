@@ -13,29 +13,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Bootstap hotpot into lazy plugin dir if it does not exist yet.
-local hotpotpath = vim.fn.stdpath("data") .. "/lazy/hotpot.nvim"
-if not vim.loop.fs_stat(hotpotpath) then
-  vim.notify("Bootstrapping hotpot.nvim...", vim.log.levels.INFO)
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "--single-branch",
-    -- You may with to pin a known version tag with `--branch=vX.Y.Z`
-    "--branch=v0.9.6",
-    "https://github.com/rktjmp/hotpot.nvim.git",
-    hotpotpath,
-  })
-end
-
--- As per lazy's install instructions, but insert hotpots path at the front
-vim.opt.runtimepath:prepend({hotpotpath, lazypath})
-
 vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
 
 require("lazy").setup({
-  "rktjmp/hotpot.nvim",
   {
     "lukas-reineke/indent-blankline.nvim",
     version = "2.20.7",
@@ -145,9 +125,6 @@ require("lazy").setup({
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-      "nvim-telescope/telescope-project.nvim",
-      "nvim-telescope/telescope-smart-history.nvim",
       "nvim-telescope/telescope-file-browser.nvim",
       "nvim-telescope/telescope-frecency.nvim"
     },
@@ -339,9 +316,7 @@ require("lazy").setup({
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
     build = ":TSUpdate",
     dependencies = { { "RRethy/nvim-treesitter-endwise", lazy = false } },
-    config = function(_, opts)
-      require("nvim-treesitter.configs").setup(opts)
-    end,
+    config = true,
     opts = {
       highlight = {
         enable = true,
@@ -424,4 +399,20 @@ require("lazy").setup({
 vim.cmd.colorscheme "catppuccin"
 
 vim.api.nvim_set_hl(0, "TermCursorNC", {})
+
+local opt = vim.opt
+local o = vim.o
+local g = vim.g
+o.expandtab = true
+o.shiftwidth = 2
+o.smartindent = true
+o.tabstop = 2
+o.softtabstop = 2
+
+opt.whichwrap:append "<>[]hl"
+opt.fillchars = { eob = " " }
+o.ignorecase = true
+o.smartcase = true
+o.mouse = "a"
+
 require("mappings")
