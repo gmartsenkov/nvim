@@ -1,7 +1,7 @@
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local lspconfig = require "lspconfig"
-local servers = { "gopls", "solargraph", "tsserver", "clojure_lsp", "clangd", "fennel_language_server" }
+local servers = { "gopls", "solargraph", "tsserver", "clojure_lsp", "clangd" }
 
 -- local configs = require 'lspconfig.configs'
 -- configs.nextls = {
@@ -68,6 +68,24 @@ lspconfig["rust_analyzer"].setup {
     ["rust-analyzer"] = {
       checkOnSave = {
         command = "clippy",
+      },
+    },
+  },
+}
+
+lspconfig["lua_ls"].setup {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" },
+      },
+      workspace = {
+        library = {
+          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+          [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
+        },
+        maxPreload = 100000,
+        preloadFileSize = 10000,
       },
     },
   },

@@ -210,9 +210,8 @@ require("lazy").setup({
     "williamboman/mason.nvim",
     cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
     opts = {
-      ensure_installed = { "lua-language-server", "nextls" },
-
-      PATH = "skip",
+      ensure_installed = { "lua-language-server" },
+      PATH = "prepend",
 
       ui = {
         icons = {
@@ -403,7 +402,6 @@ vim.api.nvim_set_hl(0, "TermCursorNC", {})
 
 local opt = vim.opt
 local o = vim.o
-local g = vim.g
 o.expandtab = true
 o.shiftwidth = 2
 o.smartindent = true
@@ -415,5 +413,8 @@ opt.fillchars = { eob = " " }
 o.ignorecase = true
 o.smartcase = true
 o.mouse = "a"
+
+local is_windows = vim.fn.has("win32") ~= 0
+vim.env.PATH = vim.fn.stdpath "data" .. "/mason/bin" .. (is_windows and ";" or ":") .. vim.env.PATH
 
 require("mappings")
