@@ -51,6 +51,7 @@ require("lazy").setup({
       vim.api.nvim_set_hl(0, "IndentBlanklineContextStart", { bg="#404040" })
     end
   },
+  {"gmartsenkov/peek", dir = "~/Development/peek", lazy=false },
   {"nanozuki/tabby.nvim", lazy=false},
   -- {
   --   'nvim-lualine/lualine.nvim',
@@ -413,7 +414,8 @@ opt.fillchars = { eob = " " }
 o.ignorecase = true
 o.smartcase = true
 o.mouse = "a"
-
+vim.cmd("set nomodeline")
+vim.cmd("set nosmd")
 local is_windows = vim.fn.has("win32") ~= 0
 vim.env.PATH = vim.fn.stdpath "data" .. "/mason/bin" .. (is_windows and ";" or ":") .. vim.env.PATH
 

@@ -17,7 +17,8 @@ map("t", "<C-x>", "<C-\\><C-N>", { desc = "Terminal Escape terminal mode" })
 map("n", "<leader><leader>", function ()
   -- local cwd = require("root").find() or vim.fn.expand "%:p:h"
   -- vim.cmd("Telescope frecency hidden=true workspace=CWD cwd=" .. cwd)
-  vim.cmd("Telescope frecency hidden=true previewer=false workspace=CWD")
+  -- vim.cmd("Telescope frecency hidden=true previewer=false workspace=CWD")
+  require("peek").create_window();
 end)
 
 map("n", "<leader>bb", "<cmd> Telescope buffers <CR>")
