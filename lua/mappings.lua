@@ -18,7 +18,7 @@ map("n", "<leader><leader>", function ()
   -- local cwd = require("root").find() or vim.fn.expand "%:p:h"
   -- vim.cmd("Telescope frecency hidden=true workspace=CWD cwd=" .. cwd)
   -- vim.cmd("Telescope frecency hidden=true previewer=false workspace=CWD")
-  require("peek").create_window();
+  require("peek").builtins.find_file();
 end)
 
 map("n", "<leader>bb", "<cmd> Telescope buffers <CR>")

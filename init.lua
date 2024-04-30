@@ -51,27 +51,12 @@ require("lazy").setup({
       vim.api.nvim_set_hl(0, "IndentBlanklineContextStart", { bg="#404040" })
     end
   },
-  {"gmartsenkov/peek", dir = "~/Development/peek", lazy=false },
-  {"nanozuki/tabby.nvim", lazy=false},
-  -- {
-  --   'nvim-lualine/lualine.nvim',
-  --   dependencies = { 'nvim-tree/nvim-web-devicons' },
-  --   lazy = false,
-  --   config = true
-  -- },
   {
-    "elixir-tools/elixir-tools.nvim",
-    version = "*",
-    event = { "BufReadPre", "BufNewFile" },
-    config = function()
-      require("elixir").setup {
-        nextls = { enable = false },
-        credo = { enable = false },
-        elixirls = { enable = true }
-      }
-    end,
-    dependencies = { "nvim-lua/plenary.nvim" },
+    "numToStr/Comment.nvim",
+    config = true,
+    lazy = false,
   },
+  {"gmartsenkov/peek", dir = "~/Development/peek", lazy=false },
   { "tpope/vim-surround", lazy = false },
   { "tpope/vim-repeat", lazy = false },
   {
@@ -131,12 +116,6 @@ require("lazy").setup({
     },
     cmd = "Telescope",
     opts = require "plugins.telescope",
-  },
-  {
-    "folke/trouble.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    lazy = false,
-    opts = {},
   },
   {
     "hrsh7th/nvim-cmp",
