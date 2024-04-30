@@ -45,10 +45,7 @@ map("n", "<leader>tg", "<cmd> TestVisit <CR>")
 
 
 map("n", "<Esc>", function()
-  if string.len(vim.api.nvim_command_output "echo @/") > 0 then
-    vim.cmd 'let @/ = ""'
-    return
-  end
+  vim.cmd 'noh'
   local terminals = require("toggleterm.terminal").get_all()
   for _, term in ipairs(terminals) do
     require("toggleterm.ui").close(term)
@@ -110,6 +107,8 @@ map("n", "<C-Tab>", function()
 )
 map("n", "<C-[>", "<cmd> bprevious <CR>")
 map("n", "<C-]>", "<cmd> bnext <CR>")
+map("n", "[h", "<cmd> Gitsigns prev_hunk <CR>")
+map("n", "]h", "<cmd> Gitsigns next_hunk <CR>")
 map("n", "]d", function ()
     vim.diagnostic.goto_next()
   end
