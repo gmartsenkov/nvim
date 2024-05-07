@@ -21,7 +21,11 @@ map("n", "<leader><leader>", function ()
   require("peek").builtins.find_file();
 end)
 
-map("n", "<leader>bb", "<cmd> Telescope buffers <CR>")
+-- map("n", "<leader>bb", "<cmd> Telescope buffers <CR>")
+map("n", "<leader>bb", function ()
+  local cwd = require("root").find() .. "/"
+  require("peek").builtins.find_buffer({ cwd = cwd })
+end)
 map("n", "<leader>bd", "<cmd> Bdelete <CR>")
 map("n", "<leader>bn", "<cmd> enew <CR>")
 map("n", "<leader>pp", "<cmd> Telescope project <CR>")
@@ -46,10 +50,12 @@ map("n", "<leader>tg", "<cmd> TestVisit <CR>")
 
 map("n", "<Esc>", function()
   vim.cmd 'noh'
+  local origin_window = vim.api.nvim_get_current_win();
   local terminals = require("toggleterm.terminal").get_all()
   for _, term in ipairs(terminals) do
     require("toggleterm.ui").close(term)
   end
+  vim.api.nvim_set_current_win(origin_window);
 end)
 map("n", "<leader>mp", function()
   local terminals = require("toggleterm.terminal").get_all()
