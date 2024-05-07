@@ -221,13 +221,12 @@ require("lazy").setup({
   {
     "nvim-treesitter/nvim-treesitter",
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
+    event = { "BufReadPost", "BufNewFile" },
     build = ":TSUpdate",
-    config = true,
     opts = {
       highlight = {
         enable = true,
         use_languagetree = true,
-        disable = {"ruby"}
       },
       ensure_installed = {
         "eex",
@@ -249,6 +248,9 @@ require("lazy").setup({
         disable = { "ruby" },
       },
     },
+    config = function (_, opts)
+      require("nvim-treesitter.configs").setup(opts)
+    end
   },
 }, {
     root = "/Users/gogo/.config2/lazy",
