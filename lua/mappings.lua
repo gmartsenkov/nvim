@@ -8,6 +8,9 @@ map("i", "jk", "<ESC>")
 --   vim.cmd("Telescope find_files previewer=false hidden=true cwd=" .. cwd)
 -- end)
 
+map('i', '<C-a>', '<Home>', {silent = false})
+map('i', '<C-e>', '<End>', {silent = false})
+
 map('c', '<C-a>', '<Home>', {silent = false})
 map('c', '<C-e>', '<End>', {silent = false})
 
