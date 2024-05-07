@@ -17,55 +17,12 @@ vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappin
 
 require("lazy").setup({
   {
-    "lukas-reineke/indent-blankline.nvim",
-    version = "2.20.7",
-    lazy = false,
-    opts = function()
-      return {
-        scope = { enabled = true},
-        indentLine_enabled = 1,
-        filetype_exclude = {
-          "help",
-          "terminal",
-          "lazy",
-          "lspinfo",
-          "TelescopePrompt",
-          "TelescopeResults",
-          "mason",
-          "nvdash",
-          "nvcheatsheet",
-          "",
-        },
-        buftype_exclude = { "terminal" },
-        show_trailing_blankline_indent = false,
-        show_first_indent_level = false,
-        show_current_context = true,
-        show_current_context_start = true,
-      }
-    end,
-    config = function(_, opts)
-      require("indent_blankline").setup(opts)
-      vim.api.nvim_set_hl(0, "IndentBlanklineChar", { fg="#333333" })
-      vim.api.nvim_set_hl(0, "IndentBlanklineSpaceChar", { fg="#333333" })
-      vim.api.nvim_set_hl(0, "IndentBlanklineContextChar", { fg="#404040" })
-      vim.api.nvim_set_hl(0, "IndentBlanklineContextStart", { bg="#404040" })
-    end
-  },
-  {
     "numToStr/Comment.nvim",
     config = true,
     lazy = false,
   },
   {"gmartsenkov/peek", dir = "~/Development/peek", lazy=false },
-  { "tpope/vim-surround", lazy = false },
-  { "tpope/vim-repeat", lazy = false },
-  {
-    "saecki/crates.nvim",
-    tag = "v0.3.0",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    event = { "BufRead Cargo.toml" },
-    config = true,
-  },
+  { "echasnovski/mini.pairs", version = "*", lazy = false, config = true },
   {
     "gmartsenkov/gotospec.nvim",
     lazy = false,
@@ -130,20 +87,6 @@ require("lazy").setup({
         config = function()
           require("luasnip.loaders.from_snipmate").lazy_load { paths = vim.fn.stdpath("config") .. "/snippets" }
         end
-      },
-      {
-        "windwp/nvim-autopairs",
-        opts = {
-          fast_wrap = {},
-          disable_filetype = { "TelescopePrompt", "vim" },
-        },
-        config = function(_, opts)
-          require("nvim-autopairs").setup(opts)
-
-          -- setup cmp for autopairs
-          local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-          require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
-        end,
       },
       "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-nvim-lua",
@@ -259,22 +202,6 @@ require("lazy").setup({
     build = "make",
   },
   {
-    "tpope/vim-sexp-mappings-for-regular-people",
-    ft = { "fennel", "clojure" },
-    dependencies = {
-      {
-        "guns/vim-sexp",
-        ft = { "fennel", "clojure" },
-        config = function()
-          vim.g.sexp_enable_insert_mode_mappings = 0
-          vim.g.sexp_filetypes = "clojure,fennel"
-        end,
-      },
-    },
-  },
-  { "Olical/conjure", ft = { "fennel", "clojure" } },
-  { "jaawerth/fennel.vim", ft = { "fennel" } },
-  {
     "gmartsenkov/root.nvim",
     lazy = false,
     config = true,
@@ -295,12 +222,12 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter",
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
     build = ":TSUpdate",
-    dependencies = { { "RRethy/nvim-treesitter-endwise", lazy = false } },
     config = true,
     opts = {
       highlight = {
         enable = true,
         use_languagetree = true,
+        disable = {"ruby"}
       },
       ensure_installed = {
         "eex",
@@ -316,9 +243,6 @@ require("lazy").setup({
         "c",
         "javascript",
         "markdown",
-      },
-      endwise = {
-        enable = true,
       },
       indent = {
         enable = true,
