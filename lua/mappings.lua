@@ -8,6 +8,9 @@ map("i", "jk", "<ESC>")
 --   vim.cmd("Telescope find_files previewer=false hidden=true cwd=" .. cwd)
 -- end)
 
+map('c', '<C-a>', '<Home>', {silent = false})
+map('c', '<C-e>', '<End>', {silent = false})
+
 map("n", "<C-h>", "<C-w>h", { desc = "Switch Window left" })
 map("n", "<C-l>", "<C-w>l", { desc = "Switch Window right" })
 map("n", "<C-j>", "<C-w>j", { desc = "Switch Window down" })
