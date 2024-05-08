@@ -56,12 +56,10 @@ map("n", "<leader>tg", "<cmd> TestVisit <CR>")
 
 map("n", "<Esc>", function()
   vim.cmd 'noh'
-  local origin_window = vim.api.nvim_get_current_win();
   local terminals = require("toggleterm.terminal").get_all()
   for _, term in ipairs(terminals) do
     require("toggleterm.ui").close(term)
   end
-  vim.api.nvim_set_current_win(origin_window);
 end)
 map("n", "<leader>mp", function()
   local terminals = require("toggleterm.terminal").get_all()
