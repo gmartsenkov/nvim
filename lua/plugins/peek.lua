@@ -1,1 +1,1 @@
-return {"gmartsenkov/peek", dir = "~/Development/peek", lazy=false }
+return { "gmartsenkov/peek", dir = "~/Development/peek", lazy = false }

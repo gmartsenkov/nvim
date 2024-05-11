@@ -19,37 +19,37 @@ vim.o.updatetime = 250
 vim.wo.number = true
 vim.opt.signcolumn = "yes"
 
-vim.diagnostic.config {
-  virtual_text = false,
-  signs = true,
-  underline = true,
-  update_in_insert = false,
-}
+vim.diagnostic.config({
+	virtual_text = false,
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+})
 
 -- vim.api.nvim_exec([[ let @/ = ""]], false)
 if vim.g.neovide then
-  vim.g.neovide_cursor_animation_length = 0
-  vim.g.neovide_cursor_trail_size = 0
-  vim.g.neovide_cursor_antialiasing = true
-  vim.g.neovide_scroll_animation_length = 0.3
-  vim.g.neovide_refresh_rate = 100
-  vim.g.neovide_refresh_rate_idle = 5
-  vim.opt.guifont = "JetBrainsMono Nerd Font:h14:#e-subpixelantialias:#h-full"
+	vim.g.neovide_cursor_animation_length = 0
+	vim.g.neovide_cursor_trail_size = 0
+	vim.g.neovide_cursor_antialiasing = true
+	vim.g.neovide_scroll_animation_length = 0.3
+	vim.g.neovide_refresh_rate = 100
+	vim.g.neovide_refresh_rate_idle = 5
+	vim.opt.guifont = "JetBrainsMono Nerd Font:h14:#e-subpixelantialias:#h-full"
 end
 
 autocmd("BufEnter", {
-  pattern = { "*.go" },
-  command = "setlocal shiftwidth=8 softtabstop=8 expandtab",
+	pattern = { "*.go" },
+	command = "setlocal shiftwidth=8 softtabstop=8 expandtab",
 })
 autocmd("BufWritePre", {
-  pattern = "",
-  command = ":%s/\\s\\+$//e",
+	pattern = "",
+	command = ":%s/\\s\\+$//e",
 })
 autocmd("BufEnter", {
-  pattern = { "*.cljs" },
-  command = 'let g:conjure#client#clojure#nrepl#connection#port_files = [".shadow-cljs/nrepl.port", ".nrepl-port"]',
+	pattern = { "*.cljs" },
+	command = 'let g:conjure#client#clojure#nrepl#connection#port_files = [".shadow-cljs/nrepl.port", ".nrepl-port"]',
 })
 autocmd("BufEnter", {
-  pattern = { "*.clj", "*.cljc" },
-  command = 'let g:conjure#client#clojure#nrepl#connection#port_files = [".nrepl-port", ".shadow-cljs/nrepl.port"]',
+	pattern = { "*.clj", "*.cljc" },
+	command = 'let g:conjure#client#clojure#nrepl#connection#port_files = [".nrepl-port", ".shadow-cljs/nrepl.port"]',
 })
