@@ -1,5 +1,7 @@
 local map = vim.keymap.set
 
+vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
+
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 

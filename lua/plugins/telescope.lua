@@ -1,4 +1,4 @@
-return function()
+local opts = function()
   local actions = require "telescope.actions"
   local fb_actions = require "telescope._extensions.file_browser.actions"
   local layout_strategies = require("telescope.pickers.layout_strategies")
@@ -42,3 +42,13 @@ return function()
     extensions_list = { "themes", "terms", "file_browser", "frecency" }
   }
 end
+
+return {
+  "nvim-telescope/telescope.nvim",
+  dependencies = {
+    "nvim-telescope/telescope-file-browser.nvim",
+    "nvim-telescope/telescope-frecency.nvim"
+  },
+  cmd = "Telescope",
+  opts = opts
+}

@@ -11,7 +11,7 @@ local function border(hl_name)
   }
 end
 
-return function ()
+local config = function ()
   local cmp = require("cmp")
   local lspkind = require('lspkind')
   local item_highlights = {
@@ -96,3 +96,29 @@ return function ()
     },
   }
 end
+
+return {
+  "hrsh7th/nvim-cmp",
+  event = "InsertEnter",
+  dependencies = {
+    {"onsails/lspkind.nvim", lazy = false},
+    {
+      -- snippet plugin
+      "L3MON4D3/LuaSnip",
+      dependencies = "rafamadriz/friendly-snippets",
+      opts = { history = true, updateevents = "TextChanged,TextChangedI" },
+      config = function()
+        require("luasnip.loaders.from_snipmate").lazy_load { paths = vim.fn.stdpath("config") .. "/snippets" }
+      end
+    },
+    "saadparwaiz1/cmp_luasnip",
+    "hrsh7th/cmp-nvim-lua",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+  },
+  opts = config,
+  config = function(_, opts)
+    require("cmp").setup(opts)
+  end,
+}
