@@ -1,4 +1,4 @@
 return {
   { "nvim-lua/plenary.nvim", lazy = false },
-  { "famiu/bufdelete.nvim", cmd = "Bdelete" }
+  { "famiu/bufdelete.nvim", cmd = "Bdelete" },
 }
