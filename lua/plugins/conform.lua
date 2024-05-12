@@ -5,8 +5,17 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			ruby = { "rubocop" },
+			rust = { "rustfmt" },
 			javascript = { { "prettierd", "prettier" } },
 		},
 	},
-	config = true,
+	config = function(_, opts)
+		require("conform").setup(opts)
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			pattern = { "*.lua", "*.rs" },
+			callback = function(args)
+				require("conform").format({ bufnr = args.buf })
+			end,
+		})
+	end,
 }
