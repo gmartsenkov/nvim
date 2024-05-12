@@ -14,7 +14,7 @@ return {
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			pattern = { "*.lua", "*.rs" },
 			callback = function(args)
-				require("conform").format({ bufnr = args.buf })
+				require("conform").format({ bufnr = args.buf, quiet = true })
 			end,
 		})
 	end,
