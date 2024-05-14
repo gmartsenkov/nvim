@@ -69,7 +69,7 @@ local config = function()
 			["<C-j>"] = cmp.mapping.select_next_item(),
 			["<C-k>"] = cmp.mapping.select_prev_item(),
 			["<Up>"] = cmp.mapping.select_prev_item(),
-			["<S-CR>"] = cmp.mapping.abort(),
+			-- ["<S-CR>"] = cmp.mapping.abort(),
 			["<Tab>"] = cmp.mapping(function(callback)
 				if require("luasnip").expand_or_jumpable() then
 					vim.fn.feedkeys(

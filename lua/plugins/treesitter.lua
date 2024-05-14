@@ -1,5 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	dependencies = { { "RRethy/nvim-treesitter-endwise", lazy = false } },
 	cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
 	event = { "BufReadPost", "BufNewFile" },
 	build = ":TSUpdate",
@@ -22,6 +23,9 @@ return {
 			"c",
 			"javascript",
 			"markdown",
+		},
+		endwise = {
+			enable = true,
 		},
 		indent = {
 			enable = true,

@@ -33,6 +33,7 @@ map("n", "<leader>mf", function()
 	require("conform").format()
 end)
 
+map("n", "<C-n>", "<cmd> NvimTreeToggle <CR>", { desc = "Switch Window left" })
 -- map("n", "<leader>bb", "<cmd> Telescope buffers <CR>")
 map("n", "<leader>bb", function()
 	local cwd = require("root").find() .. "/"
