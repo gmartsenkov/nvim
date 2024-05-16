@@ -1,8 +1,6 @@
 local opts = function()
 	local actions = require("telescope.actions")
 	local fb_actions = require("telescope._extensions.file_browser.actions")
-	local layout_strategies = require("telescope.pickers.layout_strategies")
-	local p_window = require("telescope.pickers.window")
 
 	return {
 		defaults = {

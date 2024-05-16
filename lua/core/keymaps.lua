@@ -36,8 +36,12 @@ end)
 map("n", "<C-n>", "<cmd> NvimTreeToggle <CR>", { desc = "Switch Window left" })
 -- map("n", "<leader>bb", "<cmd> Telescope buffers <CR>")
 map("n", "<leader>bb", function()
-	local cwd = require("root").find() .. "/"
-	require("peek").builtins.find_buffer({ cwd = cwd })
+	local cwd = require("root").find()
+	if cwd then
+		require("peek").builtins.find_buffer({ cwd = (cwd .. "/") })
+	else
+		require("peek").builtins.find_buffer({})
+	end
 end)
 map("n", "<leader>bd", "<cmd> Bdelete <CR>")
 map("n", "<leader>bn", "<cmd> enew <CR>")
